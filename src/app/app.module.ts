@@ -5,11 +5,12 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
 import { ButtonsComponent } from './components/panel/buttons/buttons.component';
+import { StudentsComponent } from './components/students/students.component';
 
 @NgModule({
-  declarations: [AppComponent, ButtonsComponent],
+  declarations: [AppComponent, ButtonsComponent, StudentsComponent],
   imports: [BrowserModule, AppRoutingModule, ButtonsModule.forRoot()],
   providers: [],
-  bootstrap: [AppComponent]   
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
