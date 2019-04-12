@@ -1,0 +1,23 @@
+<nav>
+  <button
+    *ngFor="let button of buttons"
+    type="button"
+    class="btn btn-secondary"
+    [class.selected]="button === selectedButton"
+    (click)="onSelect(button)"
+  >
+    {{ button }}
+  </button>
+  <!-- <button type="button" class="btn btn-secondary">
+    Students
+  </button>
+  <button type="button" class="btn btn-secondary">
+    Subjects
+  </button>
+  <button type="button" class="btn btn-secondary">
+    Statistics
+  </button>
+  <button type="button" class="btn btn-secondary">
+    Export
+  </button> -->
+</nav>
