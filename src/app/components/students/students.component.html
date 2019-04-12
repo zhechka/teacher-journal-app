@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>LastName</th>
+      <th>Adress</th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.address }}</td>
+    </tr>
+  </table>
+</div>
