@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
 import { ButtonsComponent } from './components/panel/buttons/buttons.component';
 import { StudentsComponent } from './components/students/students.component';
+import { SubjectsComponent } from './components/subjects/subjects.component';
 
 @NgModule({
-  declarations: [AppComponent, ButtonsComponent, StudentsComponent],
+  declarations: [AppComponent, ButtonsComponent, StudentsComponent, SubjectsComponent],
   imports: [BrowserModule, AppRoutingModule, ButtonsModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
