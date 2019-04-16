@@ -1,11 +1,34 @@
 <div>
   <h2>Add new subject:</h2>
-  <form>
-    <div class="form-group row">
-      <label for="inputName">Name</label>
-      <div>
-        <input type="text" id="inputName" placeholder="Name" />
+  <div class="form">
+    <form>
+      <div class="form-group row">
+        <label for="inputName">* Name:</label>
+        <div>
+          <input type="text" id="inputName" placeholder="Name" />
+        </div>
       </div>
-    </div>
-  </form>
+      <div class="form-group row">
+        <label for="inputTeacher">* Teacher:</label>
+        <div>
+          <input type="text" id="inputTeacher" placeholder="Teacher" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputCabinet">Cabinet:</label>
+        <div>
+          <input type="number" id="inputCabinet" placeholder="Cabinet" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputDescription">Description:</label>
+        <div>
+          <input type="text" id="inputDescription" placeholder="Description" />
+        </div>
+      </div>
+      <button type="submit" class="btn" (click)="console.log('hello')">
+        Add
+      </button>
+    </form>
+  </div>
 </div>
