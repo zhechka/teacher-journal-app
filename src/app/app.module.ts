@@ -8,9 +8,21 @@ import { ButtonsComponent } from './components/panel/buttons/buttons.component';
 import { StudentsComponent } from './components/students/students.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
-  declarations: [AppComponent, ButtonsComponent, StudentsComponent, SubjectsComponent],
-  imports: [BrowserModule, AppRoutingModule, ButtonsModule.forRoot()],
+  declarations: [
+    AppComponent,
+    ButtonsComponent,
+    StudentsComponent,
+    SubjectsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonsModule.forRoot(),
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

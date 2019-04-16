@@ -8,6 +8,9 @@ import { Subject } from '../../common/entities/subject';
 })
 export class SubjectsComponent implements OnInit {
   @Input() subjects: Subject[];
+
+  public formVisible: boolean = true;
+
   constructor() {}
 
   ngOnInit() {}
