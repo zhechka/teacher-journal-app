@@ -1,0 +1,11 @@
+<nav>
+  <button
+    *ngFor="let button of buttons"
+    type="button"
+    class="btn btn-secondary"
+    [class.selected]="button === selectedButton"
+    (click)="onSelect(button)"
+  >
+    {{ button }}
+  </button>
+</nav>

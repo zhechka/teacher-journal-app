@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div *ngIf="!formVisible; else formBlock">
+    <h2>List of subjects:</h2>
+    <div class="buttons_container">
+      <button *ngFor="let marks of subjects" class="btn">
+        {{ marks.subject }}
+      </button>
+    </div>
+    <app-button (click)="formVisible = true"></app-button>
+  </div>
+  <ng-template #formBlock>
+    <app-form (changeViewToSubjects)="changeViewToSubjects($event)"></app-form>
+  </ng-template>
+</div>

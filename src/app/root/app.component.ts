@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Student } from '../common/entities/student';
+import { Subject } from '../common/entities/subject';
+import { data } from '../common/constants/mock-data';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Teacher Journal';
+  students: Student[] = data;
+  subjects: Subject[] = data[0].subjects;
+  ngOnInit() {}
 }

@@ -1,2 +1,27 @@
+@import "../../styles/variables.sass" 
+header
+    display: flex
+    align-items: flex-end
+
+
 h1
-    color: orange
+    color: $main-color
+    
+
+.d23
+	height: 55px 
+	width: 70px 
+	margin: 35px 20px 0 0 
+	background: $main-color 
+	position: relative 
+	&:before 
+		content: "" 
+		height: 0 
+		width: 0 
+		position: absolute 
+		left: 0 
+		top: 55px 
+		border-top: 35px solid $main-color 
+		border-left: 35px solid transparent 
+		border-right: 35px solid transparent 
+        
