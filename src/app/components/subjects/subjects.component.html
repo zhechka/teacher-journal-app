@@ -9,6 +9,6 @@
     <app-button (click)="formVisible = true"></app-button>
   </div>
   <ng-template #formBlock>
-    <app-form></app-form>
+    <app-form (changeViewToSubjects)="changeViewToSubjects($event)"></app-form>
   </ng-template>
 </div>

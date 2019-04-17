@@ -9,7 +9,11 @@ import { Subject } from '../../common/entities/subject';
 export class SubjectsComponent implements OnInit {
   @Input() subjects: Subject[];
 
-  public formVisible: boolean = true;
+  public formVisible: boolean = false;
+
+  changeViewToSubjects(value: boolean) {
+    this.formVisible = value;
+  }
 
   constructor() {}
 

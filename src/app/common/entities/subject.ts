@@ -3,4 +3,5 @@ export class Subject {
   cabinet: number;
   description: string;
   marks: object;
+  teacher: string;
 }

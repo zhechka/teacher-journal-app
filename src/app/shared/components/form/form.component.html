@@ -26,7 +26,11 @@
           <input type="text" id="inputDescription" placeholder="Description" />
         </div>
       </div>
-      <button type="submit" class="btn" (click)="console.log('hello')">
+      <button
+        type="submit"
+        class="btn"
+        (click)="change(false); $event.preventDefault()"
+      >
         Add
       </button>
     </form>

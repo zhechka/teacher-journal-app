@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.sass']
 })
 export class FormComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  @Output() changeViewToSubjects = new EventEmitter<boolean>();
+  change(value: boolean) {
+    this.changeViewToSubjects.emit(value);
   }
 
+  constructor() {}
+
+  ngOnInit() {}
 }
