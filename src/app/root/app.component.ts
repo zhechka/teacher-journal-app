@@ -12,7 +12,5 @@ export class AppComponent {
   title = 'Teacher Journal';
   students: Student[] = data;
   subjects: Subject[] = data[0].subjects;
-  ngOnInit() {
-    console.log(this.subjects);
-  }
+  ngOnInit() {}
 }
