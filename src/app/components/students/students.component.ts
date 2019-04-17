@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Student } from '../../common/entities/student';
+import { data } from '../../common/constants/mock-data';
 
 @Component({
   selector: 'app-students',
@@ -7,7 +8,7 @@ import { Student } from '../../common/entities/student';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  @Input() students: Student[];
+  students: Student[] = data;
   constructor() {}
 
   ngOnInit() {}

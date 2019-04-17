@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BUTTONS } from '../../../common/constants/panel-buttons';
 
 @Component({
   selector: 'app-buttons',
@@ -7,7 +6,6 @@ import { BUTTONS } from '../../../common/constants/panel-buttons';
   styleUrls: ['./buttons.component.sass']
 })
 export class ButtonsComponent implements OnInit {
-  buttons = BUTTONS;
   selectedButton;
   constructor() {}
 
