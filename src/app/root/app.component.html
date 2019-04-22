@@ -3,7 +3,21 @@
     <div class="d23"></div>
     <h1>{{ title }}</h1>
   </header>
-  <app-buttons></app-buttons>
-  <!-- <app-students [students]="students"></app-students> -->
-  <app-subjects [subjects]="subjects"></app-subjects>
+  <nav class="nav justify-content-center">
+    <a class="nav-link" routerLink="/students" routerLinkActive="selected"
+      >Students</a
+    >
+    <a class="nav-link" routerLink="/subjects" routerLinkActive="selected"
+      >Subjects</a
+    >
+    <a class="nav-link" routerLink="/statistics" routerLinkActive="selected"
+      >Statistics</a
+    >
+    <a class="nav-link" routerLink="/export" routerLinkActive="selected"
+      >Export</a
+    >
+  </nav>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>

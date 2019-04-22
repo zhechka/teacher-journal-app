@@ -9,13 +9,17 @@ import { StudentsComponent } from './components/students/students.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 
 import { SharedModule } from './shared/shared.module';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ExportComponent } from './components/export/export.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonsComponent,
     StudentsComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    StatisticsComponent,
+    ExportComponent
   ],
   imports: [
     BrowserModule,

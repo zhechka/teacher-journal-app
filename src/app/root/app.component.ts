@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../common/entities/student';
-import { Subject } from '../common/entities/subject';
-import { data } from '../common/constants/mock-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +8,6 @@ import { data } from '../common/constants/mock-data';
 })
 export class AppComponent {
   title = 'Teacher Journal';
-  students: Student[] = data;
-  subjects: Subject[] = data[0].subjects;
+  constructor(private router: Router) {}
   ngOnInit() {}
 }
