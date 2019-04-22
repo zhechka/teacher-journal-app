@@ -4,7 +4,6 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
-import { ButtonsComponent } from './components/panel/buttons/buttons.component';
 import { StudentsComponent } from './components/students/students.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 
@@ -15,7 +14,6 @@ import { ExportComponent } from './components/export/export.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonsComponent,
     StudentsComponent,
     SubjectsComponent,
     StatisticsComponent,
