@@ -1,19 +1,31 @@
 <div class="container">
   <header class="header">
-    <div class="pentagon"></div>
-    <h1 class="logo">{{ title }}</h1>
+    <div class="header__pentagon"></div>
+    <h1 class="header__logo">{{ title }}</h1>
   </header>
   <nav class="nav">
-    <a class="nav-link" routerLink="/students" routerLinkActive="selected"
+    <a
+      class="nav__item nav-link"
+      routerLink="/students"
+      routerLinkActive="nav__item_selected"
       >Students</a
     >
-    <a class="nav-link" routerLink="/subjects" routerLinkActive="selected"
+    <a
+      class="nav__item nav-link"
+      routerLink="/subjects"
+      routerLinkActive="nav__item_selected"
       >Subjects</a
     >
-    <a class="nav-link" routerLink="/statistics" routerLinkActive="selected"
+    <a
+      class="nav__item nav-link"
+      routerLink="/statistics"
+      routerLinkActive="nav__item_selected"
       >Statistics</a
     >
-    <a class="nav-link" routerLink="/export" routerLinkActive="selected"
+    <a
+      class="nav__item nav-link"
+      routerLink="/export"
+      routerLinkActive="nav__item_selected"
       >Export</a
     >
   </nav>

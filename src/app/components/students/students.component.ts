@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Student } from '../../common/entities/student';
-import { data } from '../../common/constants/mock-data';
+import { DataService } from '../../common/services/data.service';
 
 @Component({
   selector: 'app-students',
@@ -8,8 +8,17 @@ import { data } from '../../common/constants/mock-data';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  students: Student[] = data;
-  constructor() {}
+  public students: Student[];
+  private headerItems: string[];
+  Object = Object;
 
-  ngOnInit() {}
+  constructor(private dataService: DataService) {}
+
+  getStudents(): void {
+    this.students = this.dataService.getStudents();
+    this.headerItems = Object.keys(this.students[0]).slice(0, 4);
+  }
+  ngOnInit() {
+    this.getStudents();
+  }
 }

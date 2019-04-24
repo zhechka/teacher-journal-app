@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from '../../common/entities/subject';
-import { data } from '../../common/constants/mock-data';
+import { DataService } from '../../common/services/data.service';
 
 @Component({
   selector: 'app-subjects',
@@ -8,14 +8,19 @@ import { data } from '../../common/constants/mock-data';
   styleUrls: ['./subjects.component.sass']
 })
 export class SubjectsComponent implements OnInit {
-  subjects: Subject[] = data[0].subjects;
+  public subjects: Subject[];
   public formVisible: boolean = false;
+
+  constructor(private dataService: DataService) {}
+
+  getSubjects(): void {
+    this.subjects = this.dataService.getSubjects();
+  }
 
   changeViewToSubjects(value: boolean) {
     this.formVisible = value;
   }
-
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.getSubjects();
+  }
 }

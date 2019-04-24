@@ -4,31 +4,14 @@
     display: flex
     align-items: flex-end
 
-.logo 
+.header__logo 
 	color: white
 	
-.pentagon
-    color: $main-color
-
-.nav 
-	justify-content: space-around
-	margin-top: 4rem
-
-.nav-link 
-	width: 24%
-	text-align: center
-	background-color: #212529
-	font-size: 1.5rem
-	border-radius: 5px
-	color: white
-    
-.selected
-    color: $main-color !important
-
-.pentagon
+.header__pentagon
 	height: 55px 
 	width: 70px 
 	margin: 35px 20px 0 0 
+	color: $main-color
 	background: $main-color 
 	position: relative 
 	&:before 
@@ -41,4 +24,19 @@
 		border-top: 35px solid $main-color 
 		border-left: 35px solid transparent 
 		border-right: 35px solid transparent 
-        
+
+.nav 
+	justify-content: space-around
+	margin-top: 4rem
+
+.nav__item 
+	width: 24%
+	text-align: center
+	background-color: #212529
+	font-size: 1.5rem
+	border-radius: 5px
+	color: white
+    
+.nav__item_selected
+    color: $main-color
+

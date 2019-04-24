@@ -9,5 +9,4 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Teacher Journal';
   constructor(private router: Router) {}
-  ngOnInit() {}
 }
