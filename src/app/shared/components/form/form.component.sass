@@ -1,16 +1,20 @@
+.container__text
+    margin: 1.5rem 0
+    
 .form 
     padding: 2rem
     border: 4px solid grey
     border-radius: 20px
     font-size: 1.5rem
 
-.form-group 
+.form__item
+    padding: 1.5rem
     justify-content: space-around
 
-h2
-    margin: 1.5rem 0
+.form__item:last-of-type
+    padding-bottom: 4rem
 
-input
+.form__input
     border: 2px solid grey
     background-color: black
     padding: 0.5rem
@@ -18,19 +22,15 @@ input
     text-align: center
     font-style: italic
 
-input::placeholder 
+.form__input::placeholder 
     color: lightgrey
    
-
-.form-group:last-of-type
-    padding-bottom: 4rem
-
-input[id="inputDescription"]
+.form__input[id="inputDescription"]
     height: 200%
     border: 3px solid grey
     border-radius: 5px
 
-button
+.form__button
     display: block
     margin: 0 auto
     background-color: grey 

@@ -1,7 +1,9 @@
 export class Subject {
-  subject: string;
-  cabinet: number;
-  description: string;
-  marks: object;
-  teacher: string;
+  constructor(
+    public subject: string,
+    public teacher: string,
+    public cabinet?: number,
+    public description?: string,
+    public marks?: object
+  ) {}
 }

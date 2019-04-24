@@ -1,16 +1,13 @@
 <div class="wrapper">
   <table class="table">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>LastName</th>
-      <th>Adress</th>
+    <tr class="table__row table__row_background_blue">
+      <th class="table__cell" *ngFor="let key of headerItems">{{ key }}</th>
     </tr>
-    <tr *ngFor="let student of students">
-      <td>{{ student.id }}</td>
-      <td>{{ student.name }}</td>
-      <td>{{ student.lastName }}</td>
-      <td>{{ student.address }}</td>
+    <tr class="table__row" *ngFor="let student of students">
+      <td class="table__cell">{{ student.id }}</td>
+      <td class="table__cell">{{ student.name }}</td>
+      <td class="table__cell">{{ student.lastName }}</td>
+      <td class="table__cell">{{ student.address }}</td>
     </tr>
   </table>
 

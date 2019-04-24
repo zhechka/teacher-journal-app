@@ -1,17 +1,17 @@
 @import "../../styles/variables.sass" 
-header
+
+.header
     display: flex
     align-items: flex-end
 
-
-h1
-    color: $main-color
-    
-
-.d23
+.header__logo 
+	color: white
+	
+.header__pentagon
 	height: 55px 
 	width: 70px 
 	margin: 35px 20px 0 0 
+	color: $main-color
 	background: $main-color 
 	position: relative 
 	&:before 
@@ -24,4 +24,19 @@ h1
 		border-top: 35px solid $main-color 
 		border-left: 35px solid transparent 
 		border-right: 35px solid transparent 
-        
+
+.nav 
+	justify-content: space-around
+	margin-top: 4rem
+
+.nav__item 
+	width: 24%
+	text-align: center
+	background-color: #212529
+	font-size: 1.5rem
+	border-radius: 5px
+	color: white
+    
+.nav__item_selected
+    color: $main-color
+

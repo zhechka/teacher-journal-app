@@ -1,9 +1,35 @@
 <div class="container">
-  <header>
-    <div class="d23"></div>
-    <h1>{{ title }}</h1>
+  <header class="header">
+    <div class="header__pentagon"></div>
+    <h1 class="header__logo">{{ title }}</h1>
   </header>
-  <app-buttons></app-buttons>
-  <!-- <app-students [students]="students"></app-students> -->
-  <app-subjects [subjects]="subjects"></app-subjects>
+  <nav class="nav">
+    <a
+      class="nav__item nav-link"
+      routerLink="/students"
+      routerLinkActive="nav__item_selected"
+      >Students</a
+    >
+    <a
+      class="nav__item nav-link"
+      routerLink="/subjects"
+      routerLinkActive="nav__item_selected"
+      >Subjects</a
+    >
+    <a
+      class="nav__item nav-link"
+      routerLink="/statistics"
+      routerLinkActive="nav__item_selected"
+      >Statistics</a
+    >
+    <a
+      class="nav__item nav-link"
+      routerLink="/export"
+      routerLinkActive="nav__item_selected"
+      >Export</a
+    >
+  </nav>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
