@@ -9,7 +9,7 @@ import { DataService } from '../../common/services/data.service';
 })
 export class SubjectsComponent implements OnInit {
   public subjects: Subject[];
-  public formVisible: boolean = false;
+  public formVisible = false;
 
   constructor(private dataService: DataService) {}
 

@@ -10,6 +10,7 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
 import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ExportComponent } from './components/export/export.component';
+import { SortPipe } from './common/helpers/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ExportComponent } from './components/export/export.component';
     StudentsComponent,
     SubjectsComponent,
     StatisticsComponent,
-    ExportComponent
+    ExportComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

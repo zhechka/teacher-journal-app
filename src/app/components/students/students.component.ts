@@ -9,8 +9,8 @@ import { DataService } from '../../common/services/data.service';
 })
 export class StudentsComponent implements OnInit {
   public students: Student[];
-  private headerItems: string[];
   Object = Object;
+  private headerItems: string[];
 
   constructor(private dataService: DataService) {}
 
@@ -18,6 +18,15 @@ export class StudentsComponent implements OnInit {
     this.students = this.dataService.getStudents();
     this.headerItems = Object.keys(this.students[0]).slice(0, 4);
   }
+
+  // sortBy(): void {
+  //   console.log('sort');
+  //   this.students = this.dataService
+  //     .getStudents()
+  //     .sort((a: Student, b: Student) => (a.id - b.id) * this.order);
+  //   this.order = this.order * -1;
+  // }
+
   ngOnInit() {
     this.getStudents();
   }
