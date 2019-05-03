@@ -13,14 +13,15 @@ export class SubjectsComponent implements OnInit {
 
   constructor(private dataService: DataService) {}
 
-  getSubjects(): void {
+  public ngOnInit() {
+    this.getSubjects();
+  }
+
+  public getSubjects(): void {
     this.subjects = this.dataService.getSubjects();
   }
 
-  changeViewToSubjects(value: boolean) {
+  public changeViewToSubjects(value: boolean) {
     this.formVisible = value;
-  }
-  ngOnInit() {
-    this.getSubjects();
   }
 }
