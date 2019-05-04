@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ExportComponent } from './components/export/export.component';
 import { SortPipe } from './common/helpers/sort.pipe';
+import { CellColorDirective } from './common/directives/cell-color.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SortPipe } from './common/helpers/sort.pipe';
     SubjectsComponent,
     StatisticsComponent,
     ExportComponent,
-    SortPipe
+    SortPipe,
+    CellColorDirective
   ],
   imports: [
     BrowserModule,

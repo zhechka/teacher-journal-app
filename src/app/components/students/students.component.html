@@ -12,7 +12,11 @@
         ></div>
       </th>
     </tr>
-    <tr class="table__row" *ngFor="let student of students | sort: prop:order">
+    <tr
+      appCellColor
+      class="table__row"
+      *ngFor="let student of students | sort: prop:order"
+    >
       <td class="table__cell">{{ student.id }}</td>
       <td class="table__cell">{{ student.name }}</td>
       <td class="table__cell">{{ student.lastName }}</td>
