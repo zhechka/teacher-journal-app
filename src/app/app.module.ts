@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
@@ -27,6 +28,7 @@ import { CellColorDirective } from './common/directives/cell-color.directive';
     BrowserModule,
     AppRoutingModule,
     ButtonsModule.forRoot(),
+    TooltipModule.forRoot(),
     SharedModule
   ],
   providers: [],
