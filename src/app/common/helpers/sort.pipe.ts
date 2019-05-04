@@ -5,7 +5,9 @@ import { Student } from '../../common/entities/student';
   name: 'sort'
 })
 export class SortPipe implements PipeTransform {
-  transform(students: Student[]): Student[] {
-    return students.sort((a: Student, b: Student) => a.id - b.id);
+  transform(students: Student[], prop: string, order: number): Student[] {
+    return students.sort((a: Student, b: Student) =>
+      a[prop] > b[prop] ? order : order * -1
+    );
   }
 }
