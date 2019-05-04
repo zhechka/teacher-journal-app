@@ -2,53 +2,24 @@
   <ng-content select="h2"></ng-content>
   <div class="form">
     <form>
-      <div class="form__item row">
-        <label for="inputName">* Name:</label>
+      <div class="form__item row" *ngFor="let item of nameOfInputs">
+        <label for="{{ 'input' + item.name }}">{{
+          (item.isRequared ? '*' : '') + item.name
+        }}</label>
         <input
           class="form__input"
           type="text"
-          [value]="getLastInputValue('Name')"
-          (keyup)="saveToLocalStorage($event, 'Name')"
-          placeholder="Name"
+          [value]="getLastInputValue(item.name + 1)"
+          (keyup)="saveToLocalStorage($event, item.name + 1)"
         />
       </div>
-      <div class="form__item row">
-        <label for="inputTeacher">* Teacher:</label>
-        <input
-          class="form__input"
-          type="text"
-          [value]="getLastInputValue('Teacher')"
-          (keyup)="saveToLocalStorage($event, 'Teacher')"
-          placeholder="Teacher"
-        />
-      </div>
-      <div class="form__item row">
-        <label for="inputCabinet">Cabinet:</label>
-        <input
-          class="form__input"
-          type="number"
-          [value]="getLastInputValue('Cabinet')"
-          (keyup)="saveToLocalStorage($event, 'Cabinet')"
-          placeholder="Cabinet"
-        />
-      </div>
-      <div class="form__item row">
-        <label for="inputDescription">Description:</label>
-        <input
-          class="form__input"
-          type="text"
-          [value]="getLastInputValue('Description')"
-          (keyup)="saveToLocalStorage($event, 'Description')"
-          placeholder="Description"
-        />
-      </div>
-      <button
-        type="submit"
-        class="form__button btn"
-        (click)="change(false); $event.preventDefault()"
-      >
-        Add
-      </button>
     </form>
+    <button
+      type="submit"
+      class="form__button btn"
+      (click)="change(false); $event.preventDefault()"
+    >
+      Add
+    </button>
   </div>
 </div>

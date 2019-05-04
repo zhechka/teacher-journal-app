@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { StorageService } from '../../../common/services/storage.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { StorageService } from '../../../common/services/storage.service';
   styleUrls: ['./form.component.sass']
 })
 export class FormComponent implements OnInit {
+  @Input() nameOfInputs;
   @Output() public changeViewToSubjects: EventEmitter<
     boolean
   > = new EventEmitter();

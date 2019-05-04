@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Student } from '../../common/entities/student';
 import { DataService } from '../../common/services/data.service';
 
@@ -10,8 +10,27 @@ import { DataService } from '../../common/services/data.service';
 export class StudentsComponent implements OnInit {
   public students: Student[];
   public headerItems: string[];
+  public formVisible = false;
   public order = 1;
   public prop: string;
+  public nameOfInputs = [
+    {
+      name: 'Name ',
+      isRequared: true
+    },
+    {
+      name: 'Last name',
+      isRequared: true
+    },
+    {
+      name: 'Address',
+      isRequared: false
+    },
+    {
+      name: 'Description ',
+      isRequared: false
+    }
+  ];
   constructor(private dataService: DataService) {}
 
   public ngOnInit(): void {
@@ -26,6 +45,8 @@ export class StudentsComponent implements OnInit {
   public changeSortingOrder(property): void {
     this.prop = property;
     this.order = this.order * -1;
-    console.log(this.order, this.prop);
+  }
+  public changeViewToSubjects(value: boolean) {
+    this.formVisible = value;
   }
 }

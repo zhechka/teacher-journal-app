@@ -10,7 +10,24 @@ import { DataService } from '../../common/services/data.service';
 export class SubjectsComponent implements OnInit {
   public subjects: Subject[];
   public formVisible = false;
-
+  public nameOfInputs = [
+    {
+      name: 'Name',
+      isRequared: true
+    },
+    {
+      name: 'Teacher',
+      isRequared: true
+    },
+    {
+      name: 'Cabinet',
+      isRequared: false
+    },
+    {
+      name: 'Description',
+      isRequared: false
+    }
+  ];
   constructor(private dataService: DataService) {}
 
   public ngOnInit() {
