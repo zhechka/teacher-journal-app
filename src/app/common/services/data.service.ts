@@ -7,13 +7,12 @@ import { Subject } from '../../common/entities/subject';
   providedIn: 'root'
 })
 export class DataService {
-  constructor() {}
 
-  getStudents(): Student[] {
+  public getStudents(): Student[] {
     return data;
   }
 
-  getSubjects(): Subject[] {
+  public getSubjects(): Subject[] {
     return data[0].subjects;
   }
 }

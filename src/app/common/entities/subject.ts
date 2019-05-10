@@ -4,6 +4,6 @@ export class Subject {
     public teacher: string,
     public cabinet?: number,
     public description?: string,
-    public marks?: object
+    public marks?: any
   ) {}
 }

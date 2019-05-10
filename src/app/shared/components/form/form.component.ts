@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { StorageService } from '../../../common/services/storage.service';
 
 @Component({
@@ -7,21 +7,27 @@ import { StorageService } from '../../../common/services/storage.service';
   styleUrls: ['./form.component.sass']
 })
 export class FormComponent implements OnInit {
-  @Output() changeViewToSubjects: EventEmitter<boolean> = new EventEmitter();
+  @Input() nameOfInputs;
+  @Output() public changeViewToSubjects: EventEmitter<
+    boolean
+  > = new EventEmitter();
 
   constructor(private storageService: StorageService) {}
 
-  change(value: boolean) {
+  public ngOnInit() {}
+
+  public change(value: boolean) {
     this.changeViewToSubjects.emit(value);
   }
 
-  saveToLocalStorage(event: any, key: string): void {
-    this.storageService.set(key, event.target.value);
+  public saveToLocalStorage(event: any, key: string): void {
+    this.storageService.setItemToLocalStorage(
+      key,
+      JSON.stringify(event.target.value)
+    );
   }
 
-  getLastInputValue(key: string): string {
-    return this.storageService.get(key) ? this.storageService.get(key) : '';
+  public getLastInputValue(key: string): string {
+    return JSON.parse(this.storageService.getItemFromLocalStorage(key)) || '';
   }
-
-  ngOnInit() {}
 }
