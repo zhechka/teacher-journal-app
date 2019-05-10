@@ -40,7 +40,11 @@ export class StudentsComponent implements OnInit {
   public getStudents(): void {
     this.dataService
       .getStudents()
-      .subscribe(students => (this.students = students));
+      .subscribe(
+        students => (this.students = students),
+        err => console.error('handle error:', err),
+        () => console.log('load students - complited')
+      );
     this.headerItems = Object.keys(this.students[0]).slice(0, 4);
   }
 
