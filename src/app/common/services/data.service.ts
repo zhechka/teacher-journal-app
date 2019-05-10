@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { data } from '../../common/constants/mock-data';
+
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
 
@@ -9,8 +10,9 @@ import { Subject } from '../../common/entities/subject';
   providedIn: 'root'
 })
 export class DataService {
+  constructor(private http: HttpClient) {}
   public getStudents(): Observable<Student[]> {
-    return of(data).pipe(
+    return this.http.get<Student[]>('http://localhost:3000/data').pipe(
       map(students =>
         students.map(student => {
           return { ...student, address: student.address.split(' ').join('-') };
@@ -18,20 +20,14 @@ export class DataService {
       ),
       catchError(err => {
         console.log('catch', err);
-        return of([
-          {
-            id: '',
-            name: '',
-            lastName: '',
-            address: ''
-          }
-        ]);
+        return of([]);
       })
     );
   }
 
   public getSubjects(): Observable<Subject[]> {
-    return of(data[0].subjects).pipe(
+    return this.http.get<Subject[]>('http://localhost:3000/data').pipe(
+      map(subj => subj[0].subjects),
       catchError(err => {
         console.log('catch', err);
         return of([]);

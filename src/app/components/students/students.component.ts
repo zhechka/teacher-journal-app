@@ -41,10 +41,12 @@ export class StudentsComponent implements OnInit {
     this.dataService
       .getStudents()
       .subscribe(
-        students => (this.students = students),
+        students => (
+          (this.students = students),
+          (this.headerItems = Object.keys(this.students[0]).slice(0, 4))
+        ),
         err => console.error('handle error:', err)
       );
-    this.headerItems = Object.keys(this.students[0]).slice(0, 4);
   }
 
   public changeSortingOrder(property): void {

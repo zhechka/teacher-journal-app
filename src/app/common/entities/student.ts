@@ -5,7 +5,7 @@ export class Student {
     public id: number,
     public name: string,
     public lastName: string,
-    public adress?: string,
+    public address?: string,
     public about?: string,
     public subjects?: Subject[]
   ) {}

@@ -32,7 +32,6 @@ export class SubjectsComponent implements OnInit {
 
   public ngOnInit() {
     this.getSubjects();
-    console.log(this.subjects);
   }
 
   public getSubjects(): void {
