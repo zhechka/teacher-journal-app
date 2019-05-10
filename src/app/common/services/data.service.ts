@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { data } from '../../common/constants/mock-data';
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
@@ -7,12 +8,11 @@ import { Subject } from '../../common/entities/subject';
   providedIn: 'root'
 })
 export class DataService {
-
-  public getStudents(): Student[] {
-    return data;
+  public getStudents(): Observable<Student[]> {
+    return of(data);
   }
 
-  public getSubjects(): Subject[] {
-    return data[0].subjects;
+  public getSubjects(): Observable<Subject[]> {
+    return of(data[0].subjects);
   }
 }

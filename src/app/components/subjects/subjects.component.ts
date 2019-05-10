@@ -35,7 +35,9 @@ export class SubjectsComponent implements OnInit {
   }
 
   public getSubjects(): void {
-    this.subjects = this.dataService.getSubjects();
+    this.dataService
+      .getSubjects()
+      .subscribe(subjects => (this.subjects = subjects));
   }
 
   public changeViewToSubjects(value: boolean) {

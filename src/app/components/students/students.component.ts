@@ -38,7 +38,9 @@ export class StudentsComponent implements OnInit {
   }
 
   public getStudents(): void {
-    this.students = this.dataService.getStudents();
+    this.dataService
+      .getStudents()
+      .subscribe(students => (this.students = students));
     this.headerItems = Object.keys(this.students[0]).slice(0, 4);
   }
 
