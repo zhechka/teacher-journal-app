@@ -42,8 +42,7 @@ export class StudentsComponent implements OnInit {
       .getStudents()
       .subscribe(
         students => (this.students = students),
-        err => console.error('handle error:', err),
-        () => console.log('load students - complited')
+        err => console.error('handle error:', err)
       );
     this.headerItems = Object.keys(this.students[0]).slice(0, 4);
   }

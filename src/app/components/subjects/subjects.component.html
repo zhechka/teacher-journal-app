@@ -3,10 +3,10 @@
     <h2 class="container__text">List of subjects:</h2>
     <div class="buttons-container">
       <button
-        *ngFor="let marks of subjects"
+        *ngFor="let item of subjects"
         class="buttons-container__button btn"
       >
-        {{ marks.subject }}
+        {{ item.subject }}
       </button>
     </div>
     <div class="button-plus" (click)="formVisible = true"></div>

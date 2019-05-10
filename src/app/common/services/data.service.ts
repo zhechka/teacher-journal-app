@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, from } from 'rxjs';
-import { filter, map, catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { data } from '../../common/constants/mock-data';
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +15,27 @@ export class DataService {
         students.map(student => {
           return { ...student, address: student.address.split(' ').join('-') };
         })
-      )
+      ),
+      catchError(err => {
+        console.log('catch', err);
+        return of([
+          {
+            id: '',
+            name: '',
+            lastName: '',
+            address: ''
+          }
+        ]);
+      })
     );
   }
 
   public getSubjects(): Observable<Subject[]> {
-    return of(data[0].subjects);
+    return of(data[0].subjects).pipe(
+      catchError(err => {
+        console.log('catch', err);
+        return of([]);
+      })
+    );
   }
 }
