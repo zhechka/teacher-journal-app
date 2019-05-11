@@ -1,0 +1,26 @@
+<div class="subject-table-wrapper">
+  <h2 class="subject-table-wrapper__text">{{ subject }}</h2>
+  <table class="table">
+    <tr class="table__row" class="table__row_background_blue">
+      <th class="table__cell" *ngFor="let item of headerItems">
+        {{ item }}
+      </th>
+    </tr>
+    <tr appCellColor class="table__row" *ngFor="let student of students">
+      <td class="table__cell">{{ student.name }}</td>
+      <td class="table__cell">{{ student.lastName }}</td>
+      <td class="table__cell">{{ 'average mark' }}</td>
+      <td class="table__cell" *ngFor="let dat of date">
+        {{ student.marks[dat] }}
+      </td>
+    </tr>
+  </table>
+
+  <div class="form row">
+    <label for="Teacher">{{ 'Teacher' }}</label>
+    <input class="form__input" value="{{ teacher }}" type="text" />
+  </div>
+  <button type="submit" class="button btn" (click)="$event.preventDefault()">
+    Save
+  </button>
+</div>

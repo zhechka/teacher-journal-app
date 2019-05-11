@@ -37,7 +37,10 @@ export class SubjectsComponent implements OnInit {
   public getSubjects(): void {
     this.dataService
       .getSubjects()
-      .subscribe(subjects => (this.subjects = subjects));
+      .subscribe(
+        subjects => (this.subjects = subjects.subjects),
+        err => console.error('handle error:', err)
+      );
   }
 
   public changeViewToSubjects(value: boolean) {
