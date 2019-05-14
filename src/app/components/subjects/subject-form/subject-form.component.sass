@@ -1,0 +1,44 @@
+@import "../../../../styles/variables"  
+    
+.form 
+    padding: 2rem
+    border: 0.25rem solid $border-color
+    border-radius: 1rem
+    font-size: 1.5rem
+
+.form__item
+    padding: 1.5rem
+    justify-content: space-around
+
+.form__item:last-of-type
+    padding-bottom: 4rem
+
+input.ng-invalid.ng-touched
+    border: solid 1px red
+
+.form__label:first-letter
+    text-transform: capitalize
+
+.form__input
+    border: 0.12rem solid $border-color
+    background-color: black
+    padding: 0.5rem
+    color: white
+    text-align: center
+    font-style: italic
+
+.form__input::placeholder 
+    color: #949999
+   
+.form__input[placeholder="Description"]
+    height: 10rem
+    border: 0.2rem solid $border-color
+    border-radius: 0.5rem
+
+.form__button
+    display: block
+    margin: 0 auto
+    background-color: $border-color 
+    color: orange
+    
+   
