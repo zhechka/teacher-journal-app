@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StudentsComponent } from './components/students/students.component';
+import { StudentsComponent } from './components/students/students-table/students.component';
 import { SubjectsComponent } from './components/subjects/subjects-list/subjects.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ExportComponent } from './components/export/export.component';

@@ -1,13 +1,10 @@
-import { Subject } from './subject';
-
 export class Student {
   constructor(
-    public id: number,
+    public index: string,
     public name: string,
     public lastName: string,
+    public id?: number,
     public address?: string,
-    public about?: string,
-    public teacher?: string,
-    public subjects?: Subject[]
+    public about?: string
   ) {}
 }

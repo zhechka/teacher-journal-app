@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../../common/entities/student';
-import { DataService } from '../../common/services/data.service';
+import { Student } from '../../../common/entities/student';
+import { DataService } from '../../../common/services/data.service';
 
 @Component({
   selector: 'app-students',
@@ -15,19 +15,19 @@ export class StudentsComponent implements OnInit {
   public prop: string;
   public nameOfInputs = [
     {
-      name: 'Name ',
+      name: 'name',
       isRequared: true
     },
     {
-      name: 'Last name',
+      name: 'lastName',
       isRequared: true
     },
     {
-      name: 'Address',
+      name: 'address',
       isRequared: false
     },
     {
-      name: 'Description ',
+      name: 'about',
       isRequared: false
     }
   ];
@@ -44,18 +44,21 @@ export class StudentsComponent implements OnInit {
         students => (
           (this.students = students),
           console.log(students),
-          ((this.headerItems = Object.keys(this.students[0]).slice(0, 4)),
-          console.log(students))
+          (this.headerItems = Object.keys(this.students[0]).slice(1, 5))
         ),
         err => console.error('handle error:', err)
       );
   }
 
+  public saveNewStudent(data) {
+    this.dataService.addNewStudent(data).subscribe();
+  }
+
   public changeSortingOrder(property): void {
     this.prop = property;
-    this.order = this.order * -1;
+    this.order = -this.order;
   }
-  public changeViewToSubjects(value: boolean) {
+  public changeViewToStudents(value: boolean) {
     this.formVisible = value;
   }
 }

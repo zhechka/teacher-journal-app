@@ -22,20 +22,21 @@
         class="table__row"
         *ngFor="let student of students | sort: prop:order"
       >
-        <td class="table__cell">{{ student.id }}</td>
         <td class="table__cell">{{ student.name }}</td>
         <td class="table__cell">{{ student.lastName }}</td>
         <td class="table__cell">{{ student.address }}</td>
+        <td class="table__cell">{{ student.about }}</td>
       </tr>
     </table>
 
     <div class="button-plus" (click)="formVisible = true"></div>
   </div>
   <ng-template #formBlock>
-    <app-form
+    <app-student-form
       [nameOfInputs]="nameOfInputs"
-      (changeViewToSubjects)="changeViewToSubjects($event)"
-      ><h2 class="container__text">Add new student:</h2></app-form
+      (addNewStudent)="saveNewStudent($event)"
+      (changeViewToStudents)="changeViewToStudents($event)"
+      ><h2 class="container__text">Add new student:</h2></app-student-form
     >
   </ng-template>
 </div>

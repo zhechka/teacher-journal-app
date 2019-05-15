@@ -1,21 +1,20 @@
 <div class="container">
   <ng-content select="h2"></ng-content>
   <div class="form">
-    <form (submit)="onSubmit()">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="form__item row" *ngFor="let item of nameOfInputs">
-        <label for="{{ 'input' + item.name }}">{{
+        <label class="form__label" for="{{ 'input' + item.name }}">{{
           (item.isRequared ? '*' : '') + item.name
         }}</label>
         <input
           class="form__input"
           type="text"
-          name="{{ item.name }}"
-          [value]="getLastInputValue(item.name + 1)"
+          [required]="item.isRequared"
           ngModel
-          (keyup)="saveToLocalStorage($event, item.name + 1)"
+          name="{{ item.name }}"
         />
       </div>
-      <button class="form__button btn" type="submit">
+      <button class="form__button btn" type="submit" [disabled]="!form.valid">
         Add
       </button>
     </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../common/entities/student';
+import { Subject } from '../../../common/entities/subject';
 import { DataService } from '../../../common/services/data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,17 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SubjectTableComponent implements OnInit {
   public students: Student[];
-  public headerItems: string[] = [
-    'Name',
-    'Last Name',
-    'Average Mark',
-    '04/02',
-    '05/02',
-    '06/02',
-    '07/02'
-  ];
-  public date = this.headerItems.slice(3);
-  public subject: string;
+  public headerItems: string[] = ['Name', 'Last Name', 'Average Mark'];
+  public subject: Subject;
+  public nameOfSubject: string;
+  public dates: string[];
+  public marks: string[];
   public teacher: string;
   constructor(
     private route: ActivatedRoute,
@@ -28,35 +23,51 @@ export class SubjectTableComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.getSubjects();
     this.getStudents();
-    this.getSubject();
+    this.nameOfSubject = this.route.snapshot.paramMap.get('name');
   }
 
-  public getSubject(): void {
-    this.subject = this.route.snapshot.paramMap.get('name');
+  public con() {
+    console.log(this.subject);
+    this.subject = {
+      ...this.subject,
+      marks: { ...this.subject.marks, '11/02': '' }
+    };
+    this.headerItems.push('11/02');
+    this.dates.push('11/02');
+    console.log(this);
   }
 
   public getStudents(): void {
-    this.dataService.getStudents().subscribe(
-      students => (
-        (this.students = students.map(el => ({
-          id: el.id,
-          name: el.name,
-          lastName: el.lastName,
-          teacher: el.subjects.find(element => element.subject === this.subject)
-            .teacher,
-          marks: el.subjects.find(element => element.subject === this.subject)
-            .marks
-        }))),
-        (this.teacher = this.students[0].teacher),
-        console.log(this.students)
+    this.dataService
+      .getStudents()
+      .subscribe(
+        students => (this.students = students),
+        err => console.error('handle error:', err)
+      );
+  }
+  public getSubjects(): void {
+    this.dataService.getSubjects().subscribe(
+      subjects => (
+        (this.subject = subjects.find(el => el.subject === this.nameOfSubject)),
+        (this.dates = Object.keys(this.subject.marks)),
+        this.headerItems.push(...this.dates),
+        (this.teacher = this.subject.teacher),
+        (this.marks = this.subject.marks)
       ),
+
       err => console.error('handle error:', err)
     );
   }
 
-  public getAverageMark(objOfMarks): string {
-    const marks: any[] = Object.values(objOfMarks).filter(Boolean);
+  public getAverageMark(index) {
+    const marks = Object.values(this.marks)
+      .reduce((a, b) => {
+        a.push(+b[index]);
+        return a;
+      }, [])
+      .filter(Boolean);
     return marks.length === 0
       ? '-'
       : (

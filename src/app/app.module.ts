@@ -7,17 +7,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
-import { StudentsComponent } from './components/students/students.component';
+import { StudentsComponent } from './components/students/students-table/students.component';
 import { SubjectsComponent } from './components/subjects/subjects-list/subjects.component';
 import { SubjectTableComponent } from './components/subjects/subject-table/subject-table.component';
 
-import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ExportComponent } from './components/export/export.component';
 import { SortPipe } from './common/helpers/sort.pipe';
 import { CellColorDirective } from './common/directives/cell-color.directive';
 import { ButtonOrderHideDirective } from './common/directives/button-order-hide.directive';
 import { SubjectFormComponent } from './components/subjects/subject-form/subject-form.component';
+import { StudentFormComponent } from './components/students/student-form/student-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { SubjectFormComponent } from './components/subjects/subject-form/subject
     CellColorDirective,
     ButtonOrderHideDirective,
     SubjectTableComponent,
-    SubjectFormComponent
+    SubjectFormComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,6 @@ import { SubjectFormComponent } from './components/subjects/subject-form/subject
     HttpClientModule,
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
-    SharedModule,
     AppRoutingModule
   ],
   providers: [],

@@ -12,7 +12,6 @@ export class SubjectsComponent implements OnInit {
   public subjects: Subject[];
   public formVisible = false;
   public data: Student[];
-  public newSubject;
   public nameOfInputs = [
     {
       name: 'subject',
@@ -38,20 +37,15 @@ export class SubjectsComponent implements OnInit {
   }
 
   public getSubjects(): void {
-    this.dataService
-      .getSubjects()
-      .subscribe(
-        data => ((this.subjects = data[0].subjects), (this.data = data)),
-        err => console.error('handle error:', err)
-      );
+    this.dataService.getSubjects().subscribe(
+      subjects => ((this.subjects = subjects), console.log(this.subjects)),
+
+      err => console.error('handle error:', err)
+    );
   }
 
   public saveNewSubject(data) {
-    this.newSubject = this.data.map(el => ({
-      ...el,
-      subjects: [...el.subjects, data]
-    }));
-    this.dataService.addNewSubject(this.newSubject).subscribe();
+    this.dataService.addNewSubject(data).subscribe();
   }
 
   public changeViewToSubjects(value: boolean) {

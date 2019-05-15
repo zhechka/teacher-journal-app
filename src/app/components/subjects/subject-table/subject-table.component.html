@@ -1,20 +1,26 @@
 <div class="subject-table-wrapper">
-  <h2 class="subject-table-wrapper__text">{{ subject }}</h2>
+  <div class="header">
+    <h2 class="header__text">{{ nameOfSubject }}</h2>
+    <div class="header__button button-plus"></div>
+  </div>
+
   <table class="table">
     <tr class="table__row" class="table__row_background_blue">
       <th class="table__cell" *ngFor="let item of headerItems">
-        {{ item }}
+        <span class="table__text">{{ item }}</span>
       </th>
     </tr>
     <tr appCellColor class="table__row" *ngFor="let student of students">
       <td class="table__cell">{{ student.name }}</td>
       <td class="table__cell">{{ student.lastName }}</td>
-      <td class="table__cell">{{ getAverageMark(student.marks) }}</td>
-      <td class="table__cell" *ngFor="let dat of date">
+      <td class="table__cell">
+        {{ getAverageMark(student.index) }}
+      </td>
+      <td class="table__cell" *ngFor="let date of dates">
         <input
           class="table__input"
           type="number"
-          [(ngModel)]="student.marks[dat]"
+          [(ngModel)]="subject.marks[date][student.index]"
         />
       </td>
     </tr>
@@ -24,7 +30,7 @@
     <label for="Teacher">{{ 'Teacher' }}</label>
     <input class="form__input" value="{{ teacher }}" type="text" />
   </div>
-  <button type="submit" class="button btn" (click)="$event.preventDefault()">
+  <button type="submit" class="button btn" (click)="con()">
     Save
   </button>
 </div>

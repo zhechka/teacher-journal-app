@@ -14,7 +14,7 @@ const httpOptions = {
 export class DataService {
   constructor(private http: HttpClient) {}
   public getStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>('http://localhost:3000/data').pipe(
+    return this.http.get<Student[]>('http://localhost:3000/students').pipe(
       map(students =>
         students.map(student => {
           return { ...student, address: student.address.split(' ').join('-') };
@@ -28,7 +28,7 @@ export class DataService {
   }
 
   public getSubjects(): Observable<Subject[]> {
-    return this.http.get<Subject[]>('http://localhost:3000/data').pipe(
+    return this.http.get<Subject[]>('http://localhost:3000/subjects').pipe(
       catchError(err => {
         console.log('catch', err);
         return of([]);
@@ -36,10 +36,20 @@ export class DataService {
     );
   }
 
-  public addNewSubject(data: Student[]): Observable<Student[]> {
-    return this.http.post<Student[]>(
-      'http://localhost:3000/data',
-      data,
+  public addNewStudent(student: Student): Observable<Student> {
+    console.log('im servise', student);
+    return this.http.post<Student>(
+      'http://localhost:3000/students',
+      student,
+      httpOptions
+    );
+  }
+
+  public addNewSubject(subject: Subject): Observable<Subject> {
+    console.log('im servise', subject);
+    return this.http.post<Subject>(
+      'http://localhost:3000/subjects',
+      subject,
       httpOptions
     );
   }

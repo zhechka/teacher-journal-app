@@ -12,7 +12,6 @@
           [required]="item.isRequared"
           ngModel
           name="{{ item.name }}"
-          (keyup)="saveToLocalStorage($event, item.name + 1)"
         />
       </div>
       <button class="form__button btn" type="submit" [disabled]="!form.valid">
