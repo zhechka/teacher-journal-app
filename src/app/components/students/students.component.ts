@@ -43,7 +43,9 @@ export class StudentsComponent implements OnInit {
       .subscribe(
         students => (
           (this.students = students),
-          (this.headerItems = Object.keys(this.students[0]).slice(0, 4))
+          console.log(students),
+          ((this.headerItems = Object.keys(this.students[0]).slice(0, 4)),
+          console.log(students))
         ),
         err => console.error('handle error:', err)
       );

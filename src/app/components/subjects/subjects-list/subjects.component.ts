@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Subject } from '../../common/entities/subject';
-import { DataService } from '../../common/services/data.service';
+import { Subject } from '../../../common/entities/subject';
+import { Student } from '../../../common/entities/student';
+import { DataService } from '../../../common/services/data.service';
 
 @Component({
   selector: 'app-subjects',
@@ -10,21 +11,23 @@ import { DataService } from '../../common/services/data.service';
 export class SubjectsComponent implements OnInit {
   public subjects: Subject[];
   public formVisible = false;
+  public data: Student[];
+  public newSubject;
   public nameOfInputs = [
     {
-      name: 'Name',
+      name: 'subject',
       isRequared: true
     },
     {
-      name: 'Teacher',
+      name: 'teacher',
       isRequared: true
     },
     {
-      name: 'Cabinet',
+      name: 'cabinet',
       isRequared: false
     },
     {
-      name: 'Description',
+      name: 'description',
       isRequared: false
     }
   ];
@@ -38,9 +41,17 @@ export class SubjectsComponent implements OnInit {
     this.dataService
       .getSubjects()
       .subscribe(
-        subjects => (this.subjects = subjects.subjects),
+        data => ((this.subjects = data[0].subjects), (this.data = data)),
         err => console.error('handle error:', err)
       );
+  }
+
+  public saveNewSubject(data) {
+    this.newSubject = this.data.map(el => ({
+      ...el,
+      subjects: [...el.subjects, data]
+    }));
+    this.dataService.addNewSubject(this.newSubject).subscribe();
   }
 
   public changeViewToSubjects(value: boolean) {

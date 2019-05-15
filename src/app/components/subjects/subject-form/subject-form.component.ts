@@ -10,10 +10,11 @@ import { Subject } from '../../../common/entities/subject';
 })
 export class SubjectFormComponent implements OnInit {
   @Input() nameOfInputs;
-  @Input() marks;
   @Output() public changeViewToSubjects: EventEmitter<
     boolean
   > = new EventEmitter();
+
+  @Output() public addNewSubject: EventEmitter<Subject> = new EventEmitter();
 
   public newSubject: Subject;
 
@@ -36,6 +37,10 @@ export class SubjectFormComponent implements OnInit {
     return JSON.parse(this.storageService.getItemFromLocalStorage(key)) || '';
   }
 
+  public addNewSubjectToData() {
+    this.addNewSubject.emit(this.newSubject);
+  }
+
   public onSubmit(form: NgForm) {
     console.log('submit!!', form.value);
     this.newSubject = {
@@ -48,6 +53,7 @@ export class SubjectFormComponent implements OnInit {
       }
     };
     console.log('new', this.newSubject);
+    this.addNewSubjectToData();
     this.change(false);
   }
 }

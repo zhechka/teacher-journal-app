@@ -1,7 +1,7 @@
 <div class="container">
   <ng-content select="h2"></ng-content>
   <div class="form">
-    <form>
+    <form (submit)="onSubmit()">
       <div class="form__item row" *ngFor="let item of nameOfInputs">
         <label for="{{ 'input' + item.name }}">{{
           (item.isRequared ? '*' : '') + item.name
@@ -9,17 +9,15 @@
         <input
           class="form__input"
           type="text"
+          name="{{ item.name }}"
           [value]="getLastInputValue(item.name + 1)"
+          ngModel
           (keyup)="saveToLocalStorage($event, item.name + 1)"
         />
       </div>
+      <button class="form__button btn" type="submit">
+        Add
+      </button>
     </form>
-    <button
-      type="submit"
-      class="form__button btn"
-      (click)="change(false); $event.preventDefault()"
-    >
-      Add
-    </button>
   </div>
 </div>

@@ -27,6 +27,11 @@ export class FormComponent implements OnInit {
     );
   }
 
+  public onSubmit() {
+    console.log('submit!!');
+    return false;
+  }
+
   public getLastInputValue(key: string): string {
     return JSON.parse(this.storageService.getItemFromLocalStorage(key)) || '';
   }

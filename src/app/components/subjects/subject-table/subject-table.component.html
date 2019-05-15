@@ -9,9 +9,13 @@
     <tr appCellColor class="table__row" *ngFor="let student of students">
       <td class="table__cell">{{ student.name }}</td>
       <td class="table__cell">{{ student.lastName }}</td>
-      <td class="table__cell">{{ 'average mark' }}</td>
+      <td class="table__cell">{{ getAverageMark(student.marks) }}</td>
       <td class="table__cell" *ngFor="let dat of date">
-        {{ student.marks[dat] }}
+        <input
+          class="table__input"
+          type="number"
+          [(ngModel)]="student.marks[dat]"
+        />
       </td>
     </tr>
   </table>

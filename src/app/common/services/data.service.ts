@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -27,11 +29,18 @@ export class DataService {
 
   public getSubjects(): Observable<Subject[]> {
     return this.http.get<Subject[]>('http://localhost:3000/data').pipe(
-      map(subj => subj[0].subjects),
       catchError(err => {
         console.log('catch', err);
         return of([]);
       })
+    );
+  }
+
+  public addNewSubject(data: Student[]): Observable<Student[]> {
+    return this.http.post<Student[]>(
+      'http://localhost:3000/data',
+      data,
+      httpOptions
     );
   }
 }

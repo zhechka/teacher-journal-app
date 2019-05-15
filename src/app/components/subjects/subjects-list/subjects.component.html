@@ -5,6 +5,7 @@
       <button
         *ngFor="let item of subjects"
         class="buttons-container__button btn"
+        routerLink="/subjects/{{ item.subject }}"
       >
         {{ item.subject }}
       </button>
@@ -12,10 +13,11 @@
     <div class="button-plus" (click)="formVisible = true"></div>
   </div>
   <ng-template #formBlock>
-    <app-form
+    <app-subject-form
       [nameOfInputs]="nameOfInputs"
       (changeViewToSubjects)="changeViewToSubjects($event)"
-      ><h2 class="container__text">Add new subject:</h2></app-form
+      (addNewSubject)="saveNewSubject($event)"
+      ><h2 class="container__text">Add new subject:</h2></app-subject-form
     >
   </ng-template>
 </div>

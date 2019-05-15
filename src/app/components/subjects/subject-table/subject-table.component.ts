@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../../common/entities/student';
-import { DataService } from '../../common/services/data.service';
+import { Student } from '../../../common/entities/student';
+import { DataService } from '../../../common/services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subject-table',
@@ -19,12 +20,20 @@ export class SubjectTableComponent implements OnInit {
     '07/02'
   ];
   public date = this.headerItems.slice(3);
-  public subject = 'mathematics';
+  public subject: string;
   public teacher: string;
-  constructor(private dataService: DataService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
 
   public ngOnInit(): void {
     this.getStudents();
+    this.getSubject();
+  }
+
+  public getSubject(): void {
+    this.subject = this.route.snapshot.paramMap.get('name');
   }
 
   public getStudents(): void {
@@ -39,9 +48,19 @@ export class SubjectTableComponent implements OnInit {
           marks: el.subjects.find(element => element.subject === this.subject)
             .marks
         }))),
-        (this.teacher = this.students[0]['teacher'])
+        (this.teacher = this.students[0].teacher),
+        console.log(this.students)
       ),
       err => console.error('handle error:', err)
     );
+  }
+
+  public getAverageMark(objOfMarks): string {
+    const marks: any[] = Object.values(objOfMarks).filter(Boolean);
+    return marks.length === 0
+      ? '-'
+      : (
+          marks.reduce((acc: number, cur: number) => acc + cur) / marks.length
+        ).toFixed(1);
   }
 }
