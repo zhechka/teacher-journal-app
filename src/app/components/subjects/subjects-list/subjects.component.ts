@@ -37,16 +37,17 @@ export class SubjectsComponent implements OnInit {
   }
 
   public getSubjects(): void {
-    this.dataService.getSubjects().subscribe(
-      subjects => ((this.subjects = subjects), console.log(this.subjects)),
-
-      err => console.error('handle error:', err)
-    );
+    this.dataService
+      .getSubjects()
+      .subscribe(
+        subjects => (this.subjects = subjects),
+        err => console.error('handle error:', err)
+      );
   }
 
   public saveNewSubject(data) {
     this.dataService.addNewSubject(data).subscribe((subject: Subject) => {
-      this.subjects.push(subject);
+      this.subjects.push({ ...subject });
     });
   }
 

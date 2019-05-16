@@ -39,107 +39,130 @@
       "lastName": "Wilder",
       "address": "557 Emerald Street",
       "about": "adipisicing est id"
+    },
+    {
+      "name": "Yauhen",
+      "lastName": "Voronin",
+      "address": "220000",
+      "about": "work hard",
+      "index": "vhdan3098",
+      "id": 6
     }
   ],
   "subjects": [
     {
       "subject": "mathematics",
       "id": 1,
-      "teacher": "Petrova",
+      "teacher": "Zverev22",
       "cabinet": 101,
       "description": "Good",
       "marks": {
-        "07/02": {
+        "05/15": {
           "4jhrglo31": "3",
-          "ff0843eyy": "9",
-          "v8i2k6x8c": "6",
-          "1qfn6qfo4": "2",
-          "vn1ir6fuh": "1"
+          "ff0843eyy": 77,
+          "v8i2k6x8c": 77,
+          "1qfn6qfo4": 77,
+          "vn1ir6fuh": 13
         },
-        "08/02": {
-          "4jhrglo31": "",
+        "05/17": {
+          "4jhrglo31": 4,
           "ff0843eyy": "5",
-          "v8i2k6x8c": "",
-          "1qfn6qfo4": "2",
+          "v8i2k6x8c": 2,
+          "1qfn6qfo4": 22,
           "vn1ir6fuh": "9"
         },
-        "09/02": {
+        "05/18": {
           "4jhrglo31": "2",
           "ff0843eyy": "2",
           "v8i2k6x8c": "8",
-          "1qfn6qfo4": "",
-          "vn1ir6fuh": ""
+          "1qfn6qfo4": 22,
+          "vn1ir6fuh": 2
         },
-        "10/02": {
+        "05/19": {
           "4jhrglo31": "6",
           "ff0843eyy": "7",
           "v8i2k6x8c": "0",
-          "1qfn6qfo4": "1",
+          "1qfn6qfo4": 22,
           "vn1ir6fuh": ""
+        },
+        "05/16": {
+          "1qfn6qfo4": 1,
+          "v8i2k6x8c": 1,
+          "vn1ir6fuh": 1,
+          "ff0843eyy": 1,
+          "4jhrglo31": 1
         }
       }
     },
     {
       "subject": "english",
       "id": 2,
-      "teacher": "Ivanova",
+      "teacher": "Petro",
       "cabinet": 201,
       "description": "Not good",
       "marks": {
-        "07/02": {
-          "4jhrglo31": "",
-          "ff0843eyy": "",
-          "v8i2k6x8c": "",
-          "1qfn6qfo4": "",
-          "vn1ir6fuh": "6"
+        "05/16": {
+          "4jhrglo31": 0,
+          "ff0843eyy": 5,
+          "v8i2k6x8c": 2,
+          "1qfn6qfo4": 17,
+          "vn1ir6fuh": "6",
+          "vhdan3098": 7
         },
-        "08/02": {
-          "4jhrglo31": "4",
-          "vn1ir6fuh": "2"
+        "05/17": {
+          "4jhrglo31": 0,
+          "vn1ir6fuh": "2",
+          "1qfn6qfo4": 17,
+          "v8i2k6x8c": 1,
+          "ff0843eyy": 5,
+          "vhdan3098": 7
         },
-        "09/02": {
-          "4jhrglo31": "",
-          "ff0843eyy": "",
+        "05/18": {
+          "4jhrglo31": 4,
+          "ff0843eyy": 5,
           "v8i2k6x8c": "7",
-          "1qfn6qfo4": "0",
+          "1qfn6qfo4": 17,
           "vn1ir6fuh": "9"
         },
-        "10/02": {
+        "05/19": {
           "4jhrglo31": "3",
           "ff0843eyy": "3",
           "v8i2k6x8c": "2",
-          "1qfn6qfo4": "9",
-          "vn1ir6fuh": ""
+          "1qfn6qfo4": 1,
+          "vn1ir6fuh": "",
+          "vhdan3098": 7
         }
       }
     },
     {
       "subject": "chemistry",
       "id": 3,
-      "teacher": "Sidorov",
+      "teacher": "efsdf324324324",
       "cabinet": 666,
       "description": "Bad",
       "marks": {
-        "07/02": {
+        "05/16": {
           "4jhrglo31": "2",
-          "ff0843eyy": "3",
-          "vn1ir6fuh": ""
+          "ff0843eyy": 345654,
+          "vn1ir6fuh": 45657,
+          "1qfn6qfo4": 11,
+          "v8i2k6x8c": 456549
         },
-        "08/02": {
+        "05/17": {
           "4jhrglo31": "4",
           "ff0843eyy": "4",
-          "v8i2k6x8c": "7",
-          "1qfn6qfo4": "7",
+          "v8i2k6x8c": 9,
+          "1qfn6qfo4": 11,
           "vn1ir6fuh": "2"
         },
-        "09/02": {
+        "05/18": {
           "4jhrglo31": "8",
           "ff0843eyy": "7",
           "v8i2k6x8c": "2",
-          "1qfn6qfo4": "3",
+          "1qfn6qfo4": 11,
           "vn1ir6fuh": ""
         },
-        "10/02": {
+        "05/19": {
           "4jhrglo31": "",
           "ff0843eyy": "",
           "v8i2k6x8c": "6",
@@ -149,12 +172,37 @@
       }
     },
     {
-      "subject": "economy",
-      "teacher": "Iba",
-      "cabinet": "333",
-      "description": "good subject",
-      "marks": "",
+      "subject": "Bio",
+      "teacher": "Borduk",
+      "cabinet": "23",
+      "description": "s",
+      "marks": {
+        "05/16": {
+          "1qfn6qfo4": 4,
+          "v8i2k6x8c": 5,
+          "vn1ir6fuh": 1,
+          "ff0843eyy": 1,
+          "4jhrglo31": 4,
+          "vhdan3098": 4
+        }
+      },
       "id": 4
+    },
+    {
+      "subject": "physics",
+      "teacher": "Zhora",
+      "cabinet": "2",
+      "description": "good",
+      "marks": {
+        "05/16": {
+          "1qfn6qfo4": 9,
+          "v8i2k6x8c": 9,
+          "vn1ir6fuh": 9,
+          "ff0843eyy": 8,
+          "4jhrglo31": 8
+        }
+      },
+      "id": 5
     }
   ]
 }

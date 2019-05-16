@@ -20,7 +20,7 @@ export class SubjectFormComponent implements OnInit {
   public ngOnInit() {}
 
   public onSubmit(form: NgForm) {
-    const newSubjectWithMarks = { ...form.value, marks: '' };
+    const newSubjectWithMarks = { ...form.value, marks: {} };
     this.addNewSubject.emit(newSubjectWithMarks);
     this.changeViewToSubjects.emit(false);
   }

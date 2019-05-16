@@ -11,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SubjectTableComponent implements OnInit {
   public students: Student[];
-  public headerItems: string[] = ['Name', 'Last Name', 'Average Mark'];
   public subject: Subject;
   public nameOfSubject: string;
   public dates: string[];
   public marks: string[];
   public teacher: string;
+  public date: string;
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService
@@ -26,17 +26,6 @@ export class SubjectTableComponent implements OnInit {
     this.getSubjects();
     this.getStudents();
     this.nameOfSubject = this.route.snapshot.paramMap.get('name');
-  }
-
-  public con() {
-    console.log(this.subject);
-    this.subject = {
-      ...this.subject,
-      marks: { ...this.subject.marks, '11/02': '' }
-    };
-    this.headerItems.push('11/02');
-    this.dates.push('11/02');
-    console.log(this);
   }
 
   public getStudents(): void {
@@ -52,16 +41,35 @@ export class SubjectTableComponent implements OnInit {
       subjects => (
         (this.subject = subjects.find(el => el.subject === this.nameOfSubject)),
         (this.dates = Object.keys(this.subject.marks)),
-        this.headerItems.push(...this.dates),
         (this.teacher = this.subject.teacher),
-        (this.marks = this.subject.marks)
+        (this.marks = this.subject.marks),
+        console.log(this.dates)
       ),
 
       err => console.error('handle error:', err)
     );
   }
 
+  public saveMarksAndTeacherForSubject() {
+    this.subject = { ...this.subject, teacher: this.teacher };
+    console.log(this.dates);
+    this.dataService.addNewMarcsForSubject(this.subject).subscribe();
+  }
+
+  public addDate() {
+    this.date = new Date().toLocaleDateString('UTC', {
+      month: '2-digit',
+      day: '2-digit'
+    });
+    this.dates.includes(this.date)
+      ? console.log('you are just have this date')
+      : (this.dates.push(this.date), (this.subject.marks[this.date] = {}));
+  }
+
   public getAverageMark(index) {
+    if (!this.marks) {
+      return;
+    }
     const marks = Object.values(this.marks)
       .reduce((a, b) => {
         a.push(+b[index]);

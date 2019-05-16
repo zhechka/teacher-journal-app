@@ -48,8 +48,16 @@ export class DataService {
   public addNewSubject(subject: Subject): Observable<Subject> {
     console.log('im servise', subject);
     return this.http.post<Subject>(
-      'http://localhost:3000/subjects',
+      'http://localhost:3000/subjects/',
       subject,
+      httpOptions
+    );
+  }
+
+  public addNewMarcsForSubject(marks: Subject): Observable<Subject> {
+    return this.http.put<Subject>(
+      `http://localhost:3000/subjects/${marks.id}`,
+      marks,
       httpOptions
     );
   }

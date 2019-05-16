@@ -44,7 +44,7 @@ export class StudentsComponent implements OnInit {
         students => (
           (this.students = students),
           console.log(students),
-          (this.headerItems = Object.keys(this.students[0]).slice(1, 5))
+          (this.headerItems = Object.keys(this.students[0]).slice(2, 6))
         ),
         err => console.error('handle error:', err)
       );
