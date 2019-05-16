@@ -45,7 +45,9 @@ export class SubjectsComponent implements OnInit {
   }
 
   public saveNewSubject(data) {
-    this.dataService.addNewSubject(data).subscribe();
+    this.dataService.addNewSubject(data).subscribe((subject: Subject) => {
+      this.subjects.push(subject);
+    });
   }
 
   public changeViewToSubjects(value: boolean) {

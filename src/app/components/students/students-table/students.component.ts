@@ -51,7 +51,9 @@ export class StudentsComponent implements OnInit {
   }
 
   public saveNewStudent(data) {
-    this.dataService.addNewStudent(data).subscribe();
+    this.dataService.addNewStudent(data).subscribe((student: Student) => {
+      this.students.push(student);
+    });
   }
 
   public changeSortingOrder(property): void {
