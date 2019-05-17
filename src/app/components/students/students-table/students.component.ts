@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../common/entities/student';
 import { DataService } from '../../../common/services/data.service';
+import { Store, select } from '@ngrx/store';
+import { AppState } from 'src/app/redux/state/app.state';
+import { LoadStudents } from 'src/app/redux/actions/students.action';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -8,11 +12,11 @@ import { DataService } from '../../../common/services/data.service';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  public students: Student[];
   public headerItems: string[];
   public formVisible = false;
   public order = 1;
   public prop: string;
+  public students: Student[];
   public nameOfInputs = [
     {
       name: 'name',
@@ -31,22 +35,20 @@ export class StudentsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private store: Store<AppState>
+  ) {}
 
   public ngOnInit(): void {
-    this.getStudents();
-  }
-
-  public getStudents(): void {
-    this.dataService
-      .getStudents()
+    this.store
+      .pipe(select('students'))
       .subscribe(
         students => (
-          (this.students = students),
           console.log(students),
+          (this.students = students),
           (this.headerItems = Object.keys(this.students[0]).slice(2, 6))
-        ),
-        err => console.error('handle error:', err)
+        )
       );
   }
 
