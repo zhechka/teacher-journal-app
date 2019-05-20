@@ -1,5 +1,7 @@
-import { Student } from '../../common/entities/student';
+import { StudentsState } from './students.state';
+import { SubjectsState } from './subjects.state';
 
 export interface AppState {
-  students: Student[];
+  studentsPage: StudentsState;
+  subjectsPage: SubjectsState;
 }

@@ -3,7 +3,10 @@ import { Student } from '../../../common/entities/student';
 import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
-import { LoadStudents } from 'src/app/redux/actions/students.action';
+import {
+  LoadStudents,
+  AddStudent
+} from 'src/app/redux/actions/students.action';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +15,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  public headerItems: string[];
+  public headerItems = ['name', 'lastname', 'address', 'about'];
   public formVisible = false;
   public order = 1;
   public prop: string;
@@ -41,21 +44,22 @@ export class StudentsComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.store
-      .pipe(select('students'))
-      .subscribe(
-        students => (
-          console.log(students),
-          (this.students = students),
-          (this.headerItems = Object.keys(this.students[0]).slice(2, 6))
-        )
-      );
+    if (!this.students) {
+      this.store
+        .pipe(select('studentsPage'))
+        .subscribe(data => (this.students = data.students));
+    }
   }
 
-  public saveNewStudent(data) {
-    this.dataService.addNewStudent(data).subscribe((student: Student) => {
-      this.students.push(student);
-    });
+  public saveNewStudent(data): void {
+    const newStudent = {
+      ...data,
+      id: this.students.length
+    };
+
+    this.dataService
+      .addNewStudent(newStudent)
+      .subscribe(stud => this.store.dispatch(new AddStudent(stud)));
   }
 
   public changeSortingOrder(property): void {

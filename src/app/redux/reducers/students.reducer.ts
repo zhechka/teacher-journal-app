@@ -1,13 +1,26 @@
-import { Action } from '@ngrx/store';
-import { Student } from '../../common/entities/student';
-import { LoadStudents, STUDENTS_ACTION } from '../actions/students.action';
+import { StudentsAction, ActionTypes } from '../actions/students.action';
+import { StudentsState } from '../state/students.state';
 
-const initialState = [];
+const initialStudentsState: StudentsState = {
+  students: []
+};
 
-export function studentsReducer(state = initialState, action: LoadStudents) {
+export function studentsReducer(
+  state = initialStudentsState,
+  action: StudentsAction
+) {
   switch (action.type) {
-    case STUDENTS_ACTION.LOAD_STUDENTS:
-      return [...action.payload];
+    case ActionTypes.LOAD_STUDENTS:
+      return {
+        ...state,
+        students: [...action.payload]
+      };
+
+    case ActionTypes.ADD_STUDENT:
+      return {
+        ...state,
+        students: [...state.students, action.payload]
+      };
     default:
       return state;
   }

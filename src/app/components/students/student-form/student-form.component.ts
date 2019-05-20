@@ -22,11 +22,11 @@ export class StudentFormComponent implements OnInit {
   public onSubmit(form: NgForm) {
     this.newStudentwithIndex = {
       ...form.value,
+
       index: Math.random()
         .toString(36)
         .substr(2, 9)
     };
-    console.log(this.newStudentwithIndex);
     this.addNewStudent.emit(this.newStudentwithIndex);
     this.changeViewToStudents.emit(false);
   }

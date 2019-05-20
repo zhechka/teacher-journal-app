@@ -22,6 +22,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { studentsReducer } from './redux/reducers/students.reducer';
+import { reducers } from './redux/reducers/reducer.factory';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { studentsReducer } from './redux/reducers/students.reducer';
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
     AppRoutingModule,
-    StoreModule.forRoot({ students: studentsReducer, subjects: {} }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

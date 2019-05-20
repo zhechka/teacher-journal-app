@@ -1,15 +1,21 @@
 import { Action } from '@ngrx/store';
 import { Student } from '../../common/entities/student';
 
-// tslint:disable-next-line:no-namespace
-export namespace STUDENTS_ACTION {
-  export const LOAD_STUDENTS = 'LOAD_STUDENTS';
+export enum ActionTypes {
+  LOAD_STUDENTS = '[Students] LOAD_STUDENTS',
+  ADD_STUDENT = '[Students] ADD_STUDENT'
 }
 
 export class LoadStudents implements Action {
-  readonly type = STUDENTS_ACTION.LOAD_STUDENTS;
+  readonly type = ActionTypes.LOAD_STUDENTS;
 
   constructor(public payload: Student[]) {}
 }
 
-export type StudentsAction = LoadStudents;
+export class AddStudent implements Action {
+  readonly type = ActionTypes.ADD_STUDENT;
+
+  constructor(public payload: Student) {}
+}
+
+export type StudentsAction = LoadStudents | AddStudent;

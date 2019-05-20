@@ -6,6 +6,7 @@ import { Student } from '../common/entities/student';
 
 import { DataService } from '../common/services/data.service';
 import { LoadStudents } from '../redux/actions/students.action';
+import { LoadSubjects } from '../redux/actions/subjects.action';
 
 @Component({
   selector: 'app-root',
@@ -25,5 +26,8 @@ export class AppComponent implements OnInit {
     this.dataService
       .getStudents()
       .subscribe(students => this.store.dispatch(new LoadStudents(students)));
+    this.dataService
+      .getSubjects()
+      .subscribe(subjects => this.store.dispatch(new LoadSubjects(subjects)));
   }
 }
