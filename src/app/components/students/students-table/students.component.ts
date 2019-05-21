@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  public headerItems = ['name', 'lastname', 'address', 'about'];
+  public headerItems = ['name', 'lastName', 'address', 'about'];
   public formVisible = false;
   public order = 1;
   public prop: string;
@@ -59,7 +59,7 @@ export class StudentsComponent implements OnInit {
 
     this.dataService
       .addNewStudent(newStudent)
-      .subscribe(stud => this.store.dispatch(new AddStudent(stud)));
+      .subscribe(student => this.store.dispatch(new AddStudent(student)));
   }
 
   public changeSortingOrder(property): void {

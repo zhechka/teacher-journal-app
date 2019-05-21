@@ -63,6 +63,14 @@
       "about": "44",
       "index": "7dedntu49",
       "id": 7
+    },
+    {
+      "name": "Fedor",
+      "lastName": "Dostoevskiy",
+      "address": "str Lenina Moskow",
+      "about": "writer",
+      "index": "ik7kfgg6r",
+      "id": 8
     }
   ],
   "subjects": [
@@ -170,7 +178,7 @@
     {
       "subject": "chemistry",
       "id": 2,
-      "teacher": "Perova",
+      "teacher": "A. Chehov",
       "cabinet": 666,
       "description": "Bad",
       "marks": {
@@ -188,7 +196,8 @@
           "v8i2k6x8c": 9,
           "1qfn6qfo4": 11,
           "vn1ir6fuh": "2",
-          "vhdan3098": 11
+          "vhdan3098": 11,
+          "ik7kfgg6r": 9
         },
         "05/18": {
           "4jhrglo31": "8",
@@ -196,7 +205,8 @@
           "v8i2k6x8c": "2",
           "1qfn6qfo4": 11,
           "vn1ir6fuh": "",
-          "vhdan3098": 11
+          "vhdan3098": 11,
+          "ik7kfgg6r": 9
         },
         "05/19": {
           "4jhrglo31": "",
@@ -204,7 +214,11 @@
           "v8i2k6x8c": "6",
           "1qfn6qfo4": "2",
           "vn1ir6fuh": "",
-          "vhdan3098": 11
+          "vhdan3098": 11,
+          "ik7kfgg6r": 9
+        },
+        "05/21": {
+          "ik7kfgg6r": 10
         }
       }
     },
@@ -266,6 +280,22 @@
       "description": "444",
       "marks": {},
       "id": 6
+    },
+    {
+      "subject": "Literature",
+      "teacher": "Pushkin",
+      "cabinet": "123",
+      "description": "lukomorye",
+      "marks": {
+        "05/21": {
+          "1qfn6qfo4": 6,
+          "vhdan3098": 6,
+          "ff0843eyy": 7,
+          "7dedntu49": 8,
+          "vn1ir6fuh": 9
+        }
+      },
+      "id": 7
     }
   ]
 }
