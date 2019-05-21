@@ -18,6 +18,11 @@ import { CellColorDirective } from './common/directives/cell-color.directive';
 import { ButtonOrderHideDirective } from './common/directives/button-order-hide.directive';
 import { SubjectFormComponent } from './components/subjects/subject-form/subject-form.component';
 import { StudentFormComponent } from './components/students/student-form/student-form.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { studentsReducer } from './redux/reducers/students.reducer';
+import { reducers } from './redux/reducers/reducer.factory';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { StudentFormComponent } from './components/students/student-form/student
     HttpClientModule,
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

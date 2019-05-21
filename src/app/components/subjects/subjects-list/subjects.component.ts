@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from '../../../common/entities/subject';
 import { Student } from '../../../common/entities/student';
 import { DataService } from '../../../common/services/data.service';
+import { Store, select } from '@ngrx/store';
+import { AppState } from 'src/app/redux/state/app.state';
+import { AddSubject } from 'src/app/redux/actions/subjects.action';
 
 @Component({
   selector: 'app-subjects',
@@ -30,25 +33,32 @@ export class SubjectsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private store: Store<AppState>
+  ) {}
 
   public ngOnInit() {
-    this.getSubjects();
-  }
-
-  public getSubjects(): void {
-    this.dataService
-      .getSubjects()
-      .subscribe(
-        subjects => (this.subjects = subjects),
-        err => console.error('handle error:', err)
-      );
+    if (!this.subjects) {
+      this.store
+        .pipe(select('subjectsPage'))
+        .subscribe(data => (this.subjects = data.subjects));
+    }
   }
 
   public saveNewSubject(data) {
-    this.dataService.addNewSubject(data).subscribe((subject: Subject) => {
-      this.subjects.push({ ...subject });
-    });
+    const newSubject: Subject = {
+      ...data,
+      id: this.subjects.length
+    };
+    console.log(newSubject);
+    !this.subjects.some(
+      el => el.subject.toLowerCase() === newSubject.subject.toLowerCase()
+    )
+      ? this.dataService
+          .addNewSubject(newSubject)
+          .subscribe(subject => this.store.dispatch(new AddSubject(subject)))
+      : alert('you just have this subject');
   }
 
   public changeViewToSubjects(value: boolean) {
