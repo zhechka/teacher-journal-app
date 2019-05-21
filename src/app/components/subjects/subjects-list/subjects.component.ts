@@ -52,9 +52,13 @@ export class SubjectsComponent implements OnInit {
       id: this.subjects.length
     };
     console.log(newSubject);
-    this.dataService
-      .addNewSubject(newSubject)
-      .subscribe(subject => this.store.dispatch(new AddSubject(subject)));
+    !this.subjects.some(
+      el => el.subject.toLowerCase() === newSubject.subject.toLowerCase()
+    )
+      ? this.dataService
+          .addNewSubject(newSubject)
+          .subscribe(subject => this.store.dispatch(new AddSubject(subject)))
+      : alert('you just have this subject');
   }
 
   public changeViewToSubjects(value: boolean) {

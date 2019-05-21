@@ -56,10 +56,15 @@ export class StudentsComponent implements OnInit {
       ...data,
       id: this.students.length
     };
-
-    this.dataService
-      .addNewStudent(newStudent)
-      .subscribe(student => this.store.dispatch(new AddStudent(student)));
+    !this.students.some(
+      el =>
+        el.name.toLowerCase() === newStudent.name.toLowerCase() &&
+        el.lastName.toLowerCase() === newStudent.lastName.toLowerCase()
+    )
+      ? this.dataService
+          .addNewStudent(newStudent)
+          .subscribe(student => this.store.dispatch(new AddStudent(student)))
+      : alert('You already have this student');
   }
 
   public changeSortingOrder(property): void {

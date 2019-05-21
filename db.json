@@ -1,6 +1,14 @@
 {
   "students": [
     {
+      "name": "Yauhen",
+      "lastName": "Voronin",
+      "address": "220000",
+      "about": "work hard",
+      "index": "vhdan3098",
+      "id": 0
+    },
+    {
       "id": 1,
       "index": "1qfn6qfo4",
       "name": "Adela",
@@ -41,14 +49,6 @@
       "about": "adipisicing est id"
     },
     {
-      "name": "Yauhen",
-      "lastName": "Voronin",
-      "address": "220000",
-      "about": "work hard",
-      "index": "vhdan3098",
-      "id": 0
-    },
-    {
       "name": "sfds",
       "lastName": "fdsf",
       "address": "sdfs",
@@ -71,6 +71,14 @@
       "about": "writer",
       "index": "ik7kfgg6r",
       "id": 8
+    },
+    {
+      "name": "33",
+      "lastName": "44",
+      "address": "",
+      "about": "",
+      "index": "xjxhc08ym",
+      "id": 9
     }
   ],
   "subjects": [
@@ -296,6 +304,30 @@
         }
       },
       "id": 7
+    },
+    {
+      "subject": "111",
+      "teacher": "435435435",
+      "cabinet": "34erterg",
+      "description": "fdgfdgfd",
+      "marks": {},
+      "id": 8
+    },
+    {
+      "subject": "214",
+      "teacher": "234",
+      "cabinet": "243",
+      "description": "324",
+      "marks": {},
+      "id": 9
+    },
+    {
+      "subject": "321",
+      "teacher": "123",
+      "cabinet": "123",
+      "description": "123",
+      "marks": {},
+      "id": 10
     }
   ]
 }
