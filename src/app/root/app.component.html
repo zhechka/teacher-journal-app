@@ -1,32 +1,44 @@
 <div class="container">
   <header class="header">
-    <div class="header__pentagon"></div>
-    <h1 class="header__logo">{{ title }}</h1>
+    <div class="header__pentagon">
+      <h1 class="header__logo">{{ 'nav.title' | translate }}</h1>
+    </div>
+
+    <label>
+      <select #langSelect (change)="translate.use(langSelect.value)">
+        <option
+          *ngFor="let lang of translate.getLangs()"
+          [value]="lang"
+          [selected]="lang === translate.currentLang"
+          >{{ lang }}</option
+        >
+      </select>
+    </label>
   </header>
   <nav class="nav">
     <a
       class="nav__item nav-link"
       routerLink="/students"
       routerLinkActive="nav__item_selected"
-      >Students</a
+      >{{ 'nav.students' | translate }}</a
     >
     <a
       class="nav__item nav-link"
       routerLink="/subjects"
       routerLinkActive="nav__item_selected"
-      >Subjects</a
+      >{{ 'nav.subjects' | translate }}</a
     >
     <a
       class="nav__item nav-link"
       routerLink="/statistics"
       routerLinkActive="nav__item_selected"
-      >Statistics</a
+      >{{ 'nav.statistics' | translate }}</a
     >
     <a
       class="nav__item nav-link"
       routerLink="/export"
       routerLinkActive="nav__item_selected"
-      >Export</a
+      >{{ 'nav.export' | translate }}</a
     >
   </nav>
   <main>

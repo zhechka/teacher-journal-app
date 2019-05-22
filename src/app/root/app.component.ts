@@ -7,6 +7,7 @@ import { Student } from '../common/entities/student';
 import { DataService } from '../common/services/data.service';
 import { LoadStudents } from '../redux/actions/students.action';
 import { LoadSubjects } from '../redux/actions/subjects.action';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,15 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+    private store: Store<AppState>,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
     this.dataService

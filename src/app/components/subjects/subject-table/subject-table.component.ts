@@ -20,6 +20,7 @@ export class SubjectTableComponent implements OnInit {
   public marks: string[];
   public teacher: string;
   public date: string;
+  public changed = false;
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
@@ -28,12 +29,13 @@ export class SubjectTableComponent implements OnInit {
 
   public ngOnInit(): void {
     this.nameOfSubject = this.route.snapshot.paramMap.get('name');
-    if (!this.students) {
-      this.store.pipe(select('studentsPage')).subscribe(
-        data => (this.students = data.students),
-
-        err => console.error('handle error:', err)
-      );
+    if (!this.students && !this.subject) {
+      this.store
+        .pipe(select('studentsPage'))
+        .subscribe(
+          data => (this.students = data.students),
+          err => console.error('handle error:', err)
+        );
       this.store
         .pipe(select('subjectsPage'))
         .subscribe(
@@ -41,8 +43,7 @@ export class SubjectTableComponent implements OnInit {
             (this.subject = data.subjects.find(
               el => el.subject === this.nameOfSubject
             )),
-            console.log(this.subject),
-            (this.dates = Object.keys(this.subject.marks)),
+            (this.dates = Object.keys(this.subject.marks).sort()),
             (this.teacher = this.subject.teacher),
             (this.marks = this.subject.marks)
           ),
@@ -51,12 +52,17 @@ export class SubjectTableComponent implements OnInit {
     }
   }
 
+  dataChanged() {
+    this.changed = true;
+  }
+
   public saveMarksAndTeacherForSubject() {
     this.subject = { ...this.subject, teacher: this.teacher };
-    console.log(this.dates);
-    this.dataService
-      .addNewMarcsForSubject(this.subject)
-      .subscribe(subject => this.store.dispatch(new AddMarks(subject)));
+    if (this.changed) {
+      this.dataService
+        .addNewMarcsForSubject(this.subject)
+        .subscribe(subject => this.store.dispatch(new AddMarks(subject)));
+    }
   }
 
   public addDate() {
@@ -65,7 +71,7 @@ export class SubjectTableComponent implements OnInit {
       day: '2-digit'
     });
     this.dates.includes(this.date)
-      ? console.log('you are just have this date')
+      ? alert('you already have this date')
       : (this.dates.push(this.date), (this.subject.marks[this.date] = {}));
   }
 

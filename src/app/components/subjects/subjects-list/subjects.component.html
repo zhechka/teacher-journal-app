@@ -1,13 +1,13 @@
 <div class="subject-wrapper">
   <div class="container" *ngIf="!formVisible; else formBlock">
-    <h2 class="container__text">List of subjects:</h2>
+    <h2 class="container__text">{{ 'subject_header' | translate }}:</h2>
     <div class="buttons-container">
       <button
         *ngFor="let item of subjects"
         class="buttons-container__button btn"
         routerLink="/subjects/{{ item.subject }}"
       >
-        {{ item.subject }}
+        {{ item.subject | translate }}
       </button>
     </div>
     <div class="button-plus" (click)="formVisible = true"></div>

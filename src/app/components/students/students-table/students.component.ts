@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  public headerItems = ['name', 'lastName', 'address', 'about'];
   public formVisible = false;
   public order = 1;
   public prop: string;
