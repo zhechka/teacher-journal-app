@@ -4,8 +4,12 @@
       <h1 class="header__logo">{{ 'nav.title' | translate }}</h1>
     </div>
 
-    <label>
-      <select #langSelect (change)="translate.use(langSelect.value)">
+    <label class="label">
+      <select
+        #langSelect
+        (change)="translate.use(langSelect.value)"
+        class="custom-select label__select"
+      >
         <option
           *ngFor="let lang of translate.getLangs()"
           [value]="lang"
