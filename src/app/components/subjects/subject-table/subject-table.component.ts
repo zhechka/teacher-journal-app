@@ -17,6 +17,7 @@ export class SubjectTableComponent implements OnInit {
   public subject: Subject;
   public nameOfSubject: string;
   public dates: string[];
+  public newDates: string[] = [];
   public marks: string[];
   public teacher: string;
   public date: string;
@@ -52,13 +53,26 @@ export class SubjectTableComponent implements OnInit {
     }
   }
 
-  dataChanged() {
+  dataChanged(newDate, i) {
     this.changed = true;
+    const date = newDate.toString().split('/');
+    if (date.length === 2 && date[0] < 13 && date[1] < 32) {
+      this.newDates[i] = newDate;
+    }
   }
 
   public saveMarksAndTeacherForSubject() {
     this.subject = { ...this.subject, teacher: this.teacher };
     if (this.changed) {
+      this.newDates.forEach(
+        (el, i) => (
+          (this.subject.marks[this.newDates[i]] = this.subject.marks[
+            this.dates[i]
+          ]),
+          delete this.subject.marks[this.dates[i]]
+        )
+      );
+
       this.dataService
         .addNewMarcsForSubject(this.subject)
         .subscribe(subject => this.store.dispatch(new AddMarks(subject)));

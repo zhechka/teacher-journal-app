@@ -65,23 +65,6 @@
       "cabinet": 101,
       "description": "Good",
       "marks": {
-        "05/15": {
-          "4jhrglo31": 4,
-          "ff0843eyy": 7,
-          "v8i2k6x8c": 7,
-          "1qfn6qfo4": 7,
-          "7dedntu49": 9,
-          "vn1ir6fuh": 3,
-          "vhdan3098": 3
-        },
-        "05/17": {
-          "v8i2k6x8c": 2,
-          "1qfn6qfo4": 2,
-          "vn1ir6fuh": 8,
-          "vhdan3098": 6,
-          "vzfuli9vf": 10,
-          "4jhrglo31": 8
-        },
         "05/18": {
           "v8i2k6x8c": 2,
           "1qfn6qfo4": 2,
@@ -94,13 +77,6 @@
           "v8i2k6x8c": 0,
           "1qfn6qfo4": 2
         },
-        "05/16": {
-          "1qfn6qfo4": 1,
-          "v8i2k6x8c": 1,
-          "vn1ir6fuh": 1,
-          "ff0843eyy": 1,
-          "4jhrglo31": 1
-        },
         "05/20": {
           "7dedntu49": 1,
           "vn1ir6fuh": 1,
@@ -109,6 +85,30 @@
         },
         "05/21": {
           "4jhrglo31": 10
+        },
+        "05/28": {
+          "4jhrglo31": 4,
+          "ff0843eyy": 7,
+          "v8i2k6x8c": 7,
+          "1qfn6qfo4": 7,
+          "7dedntu49": 9,
+          "vn1ir6fuh": 3,
+          "vhdan3098": 3
+        },
+        "05/26": {
+          "1qfn6qfo4": 1,
+          "v8i2k6x8c": 1,
+          "vn1ir6fuh": 1,
+          "ff0843eyy": 1,
+          "4jhrglo31": 1
+        },
+        "05/31": {
+          "v8i2k6x8c": 2,
+          "1qfn6qfo4": 2,
+          "vn1ir6fuh": 8,
+          "vhdan3098": 6,
+          "vzfuli9vf": 10,
+          "4jhrglo31": 8
         }
       }
     },
@@ -222,7 +222,7 @@
         "05/21": {
           "vhdan3098": 8,
           "1qfn6qfo4": 3,
-          "v8i2k6x8c": 2,
+          "v8i2k6x8c": 9,
           "vn1ir6fuh": 3,
           "ff0843eyy": null,
           "4jhrglo31": null

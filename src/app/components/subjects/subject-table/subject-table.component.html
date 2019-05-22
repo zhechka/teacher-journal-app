@@ -1,6 +1,6 @@
 <div class="subject-table-wrapper">
   <div class="header" *ngIf="students; else loading">
-    <h2 class="header__text">{{ nameOfSubject }}</h2>
+    <h2 class="header__text">{{ nameOfSubject | translate }}</h2>
     <div class="header__button button-plus" (click)="addDate()"></div>
   </div>
   <div class="table">
@@ -15,8 +15,13 @@
         <th class="table__cell">
           {{ 'averageMark' | translate }}
         </th>
-        <th class="table__cell" *ngFor="let item of dates">
-          <input class="table__input" type="text" [(ngModel)]="item" />
+        <th class="table__cell" *ngFor="let item of dates; index as i">
+          <input
+            class="table__input"
+            type="text"
+            (ngModelChange)="dataChanged($event, i)"
+            [ngModel]="dates[i]"
+          />
         </th>
       </tr>
       <tr appCellColor class="table__row" *ngFor="let student of students">
