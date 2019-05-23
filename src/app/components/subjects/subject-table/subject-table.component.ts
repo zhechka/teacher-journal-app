@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../common/entities/student';
 import { Subject } from '../../../common/entities/subject';
-import { DataService } from '../../../common/services/data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddMarks } from 'src/app/redux/actions/subjects.action';
 
@@ -15,6 +14,7 @@ import { AddMarks } from 'src/app/redux/actions/subjects.action';
 export class SubjectTableComponent implements OnInit {
   public students: Student[];
   public subject: Subject;
+  public data;
   public nameOfSubject: string;
   public dates: string[];
   public newDates: string[] = [];
@@ -22,39 +22,25 @@ export class SubjectTableComponent implements OnInit {
   public teacher: string;
   public date: string;
   public change = false;
-  constructor(
-    private route: ActivatedRoute,
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
   public ngOnInit(): void {
     this.nameOfSubject = this.route.snapshot.paramMap.get('name');
-    if (!this.students) {
-      this.store
-        .pipe(select('studentsPage'))
-        .subscribe(
-          data => (this.students = data.students),
-          err => console.error('handle error:', err)
-        );
-      this.store
-        .pipe(select('subjectsPage'))
-        .subscribe(
-          data => (
-            (this.subject = data.subjects.find(
-              el => el.subject === this.nameOfSubject
-            )),
-            (this.dates = Object.keys(this.subject.marks).sort()),
-            (this.teacher = this.subject.teacher),
-            (this.marks = this.subject.marks)
-          ),
-          err => console.error('handle error:', err)
-        );
-    }
+    this.store.subscribe(data => {
+      this.data = data;
+      if (data.studentsPage.loaded && data.subjectsPage.loaded) {
+        (this.students = data.studentsPage.students),
+          (this.subject = data.subjectsPage.subjects.find(
+            el => el.subject === this.nameOfSubject
+          )),
+          (this.dates = Object.keys(this.subject.marks).sort()),
+          (this.teacher = this.subject.teacher),
+          (this.marks = this.subject.marks);
+      }
+    });
   }
 
   dataChanged(newDate, i) {
-    console.log(newDate, i);
     const date = newDate.toString().split('/');
     if (date.length === 2 && date[0] < 13 && date[1] < 32) {
       this.newDates[i] = newDate;

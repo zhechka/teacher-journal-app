@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from '../../../common/entities/subject';
 import { Student } from '../../../common/entities/student';
-import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddSubject } from 'src/app/redux/actions/subjects.action';
@@ -33,10 +32,7 @@ export class SubjectsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   public ngOnInit() {
     if (!this.subjects) {

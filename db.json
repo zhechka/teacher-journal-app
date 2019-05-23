@@ -172,14 +172,6 @@
       "cabinet": 666,
       "description": "Bad",
       "marks": {
-        "05/16": {
-          "4jhrglo31": 5,
-          "ff0843eyy": 4,
-          "vn1ir6fuh": 7,
-          "1qfn6qfo4": 1,
-          "v8i2k6x8c": 9,
-          "vhdan3098": 1
-        },
         "05/17": {
           "4jhrglo31": 6,
           "ff0843eyy": 4,
@@ -202,6 +194,14 @@
         },
         "05/21": {
           "ik7kfgg6r": 10
+        },
+        "05/25": {
+          "4jhrglo31": 5,
+          "ff0843eyy": 4,
+          "vn1ir6fuh": 7,
+          "1qfn6qfo4": 1,
+          "v8i2k6x8c": 9,
+          "vhdan3098": 10
         }
       }
     },
@@ -227,28 +227,25 @@
     },
     {
       "subject": "literature",
-      "teacher": "Ivanova",
+      "teacher": "Ivanova123",
       "cabinet": "333",
       "description": "gogo Pushkin",
       "marks": {
         "05/21": {
-          "vhdan3098": 8,
-          "1qfn6qfo4": 3,
-          "v8i2k6x8c": 9,
+          "vhdan3098": 10,
+          "1qfn6qfo4": 10,
+          "v8i2k6x8c": 10,
           "vn1ir6fuh": 3,
           "ff0843eyy": null,
           "4jhrglo31": null
+        },
+        "05/23": {
+          "vhdan3098": 4,
+          "1qfn6qfo4": 4,
+          "v8i2k6x8c": 4
         }
       },
       "id": 4
-    },
-    {
-      "subject": "Arts",
-      "teacher": "Novikova",
-      "cabinet": "321",
-      "description": "arttttt",
-      "marks": {},
-      "id": 5
     }
   ]
 }

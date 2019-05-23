@@ -19,19 +19,5 @@ export class StatisticsComponent implements OnInit {
     private store: Store<AppState>
   ) {}
 
-  ngOnInit() {
-    this.data$ = this.store.pipe(select('students'));
-    console.log(this.data$);
-  }
-
-  onLoad() {
-    this.dataService
-      .getStudents()
-      .subscribe(students => this.store.dispatch(new LoadStudents()));
-  }
-
-  check() {
-    this.store.pipe(select('students')).subscribe(data => (this.data2 = data));
-    console.log(this.data2);
-  }
+  ngOnInit() {}
 }

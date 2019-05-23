@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from '../redux/state/app.state';
-import { Student } from '../common/entities/student';
 
-import { DataService } from '../common/services/data.service';
 import { LoadStudents } from '../redux/actions/students.action';
 import { LoadSubjects } from '../redux/actions/subjects.action';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +17,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private dataService: DataService,
     private store: Store<AppState>,
     public translate: TranslateService
   ) {

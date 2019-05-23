@@ -3,11 +3,7 @@ import { Student } from '../../../common/entities/student';
 import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
-import {
-  LoadStudents,
-  AddStudent
-} from 'src/app/redux/actions/students.action';
-import { Observable } from 'rxjs';
+import { AddStudent } from 'src/app/redux/actions/students.action';
 
 @Component({
   selector: 'app-students',
@@ -37,10 +33,7 @@ export class StudentsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   public ngOnInit(): void {
     if (!this.students) {

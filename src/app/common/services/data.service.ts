@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, pipe } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
-import { Store } from '@ngrx/store';
+
 const BASE_URL = 'http://localhost:3000/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
