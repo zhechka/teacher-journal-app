@@ -51,7 +51,7 @@ export class StudentsComponent implements OnInit {
   }
 
   public saveNewStudent(data): void {
-    const newStudent = {
+    const newStudent: Student = {
       ...data,
       id: this.students.length
     };
@@ -60,9 +60,7 @@ export class StudentsComponent implements OnInit {
         el.name.toLowerCase() === newStudent.name.toLowerCase() &&
         el.lastName.toLowerCase() === newStudent.lastName.toLowerCase()
     )
-      ? this.dataService
-          .addNewStudent(newStudent)
-          .subscribe(student => this.store.dispatch(new AddStudent(student)))
+      ? this.store.dispatch(new AddStudent(newStudent))
       : alert('You already have this student');
   }
 

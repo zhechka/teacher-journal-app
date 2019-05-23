@@ -4,7 +4,10 @@ import {
   ActionTypes,
   LoadStudentsSuccess,
   LoadStudentsFail,
-  StudentsAction
+  StudentsAction,
+  AddStudent,
+  AddStudentSuccess,
+  AddStudentFail
 } from '../actions/students.action';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { DataService } from 'src/app/common/services/data.service';
@@ -19,6 +22,18 @@ export class StudentsEffects {
       this.dataService.getStudents().pipe(
         map(students => new LoadStudentsSuccess(students)),
         catchError(error => of(new LoadStudentsFail(error)))
+      )
+    )
+  );
+
+  @Effect()
+  public addStudent$: Observable<StudentsAction> = this.actions$.pipe(
+    ofType(ActionTypes.ADD_STUDENT),
+    map((action: AddStudent) => action.payload),
+    mergeMap(student =>
+      this.dataService.addNewStudent(student).pipe(
+        map(s => new AddStudentSuccess(s)),
+        catchError(error => of(new AddStudentFail(error)))
       )
     )
   );

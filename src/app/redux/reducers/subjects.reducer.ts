@@ -32,16 +32,33 @@ export function subjectsReducer(
       };
     case ActionTypes.ADD_SUBJECT:
       return {
+        ...state
+      };
+    case ActionTypes.ADD_SUBJECT_SUCCESS:
+      const subject = action.payload;
+      return {
         ...state,
-        subjects: [...state.subjects, action.payload]
+        subjects: [...state.subjects, subject]
+      };
+    case ActionTypes.ADD_SUBJECT_FAIL:
+      return {
+        ...state
       };
     case ActionTypes.ADD_MARKS:
+      return {
+        ...state
+      };
+    case ActionTypes.ADD_MARKS_SUCCESS:
       return {
         ...state,
         subjects: [
           ...state.subjects.filter(el => el.subject !== action.payload.subject),
           action.payload
         ]
+      };
+    case ActionTypes.ADD_MARKS_FAIL:
+      return {
+        ...state
       };
     default:
       return state;

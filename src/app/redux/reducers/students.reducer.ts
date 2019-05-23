@@ -33,21 +33,18 @@ export function studentsReducer(
 
     case ActionTypes.ADD_STUDENT:
       return {
-        ...state,
-        loading: true
+        ...state
       };
     case ActionTypes.ADD_STUDENT_SUCCESS:
+      const student = action.payload;
       return {
         ...state,
-        loading: false,
-        loaded: true,
-        students: [...state.students, action.payload]
+
+        students: [...state.students, student]
       };
     case ActionTypes.ADD_STUDENT_FAIL:
       return {
-        ...state,
-        loading: false,
-        loaded: false
+        ...state
       };
     default:
       return state;

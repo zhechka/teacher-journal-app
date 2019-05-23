@@ -55,13 +55,21 @@
       "about": "good gay",
       "index": "z4s3pr377",
       "id": 6
+    },
+    {
+      "name": "Egor",
+      "lastName": "Zuev",
+      "address": "666 str Esenina",
+      "about": "not bad",
+      "index": "km126gm6n",
+      "id": 7
     }
   ],
   "subjects": [
     {
       "subject": "mathematics",
       "id": 0,
-      "teacher": "Void",
+      "teacher": "Enchantress",
       "cabinet": 101,
       "description": "Good",
       "marks": {
@@ -69,22 +77,26 @@
           "v8i2k6x8c": 2,
           "1qfn6qfo4": 2,
           "vn1ir6fuh": 2,
-          "vzfuli9vf": 10
+          "vzfuli9vf": 10,
+          "vhdan3098": 10
         },
         "05/19": {
           "4jhrglo31": 6,
           "ff0843eyy": 7,
           "v8i2k6x8c": 0,
-          "1qfn6qfo4": 2
+          "1qfn6qfo4": 2,
+          "vhdan3098": 10
         },
         "05/20": {
           "7dedntu49": 1,
           "vn1ir6fuh": 1,
           "v8i2k6x8c": 1,
-          "1qfn6qfo4": 1
+          "1qfn6qfo4": 1,
+          "vhdan3098": 10
         },
         "05/21": {
-          "4jhrglo31": 10
+          "4jhrglo31": 10,
+          "vhdan3098": 10
         },
         "05/28": {
           "4jhrglo31": 4,
@@ -229,6 +241,14 @@
         }
       },
       "id": 4
+    },
+    {
+      "subject": "Arts",
+      "teacher": "Novikova",
+      "cabinet": "321",
+      "description": "arttttt",
+      "marks": {},
+      "id": 5
     }
   ]
 }

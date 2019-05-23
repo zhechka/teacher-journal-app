@@ -21,7 +21,7 @@ export class SubjectTableComponent implements OnInit {
   public marks: string[];
   public teacher: string;
   public date: string;
-  public changed = false;
+  public change = false;
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
@@ -30,7 +30,7 @@ export class SubjectTableComponent implements OnInit {
 
   public ngOnInit(): void {
     this.nameOfSubject = this.route.snapshot.paramMap.get('name');
-    if (!this.students && !this.subject) {
+    if (!this.students) {
       this.store
         .pipe(select('studentsPage'))
         .subscribe(
@@ -54,11 +54,15 @@ export class SubjectTableComponent implements OnInit {
   }
 
   dataChanged(newDate, i) {
-    this.changed = true;
+    console.log(newDate, i);
     const date = newDate.toString().split('/');
     if (date.length === 2 && date[0] < 13 && date[1] < 32) {
       this.newDates[i] = newDate;
     }
+  }
+
+  changed() {
+    this.change = true;
   }
 
   public saveMarksAndTeacherForSubject() {
@@ -73,9 +77,7 @@ export class SubjectTableComponent implements OnInit {
         )
       );
 
-      this.dataService
-        .addNewMarcsForSubject(this.subject)
-        .subscribe(subject => this.store.dispatch(new AddMarks(subject)));
+      this.store.dispatch(new AddMarks(this.subject));
     }
   }
 
