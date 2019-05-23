@@ -65,7 +65,7 @@ export class StudentsComponent implements OnInit {
   }
 
   public changeSortingOrder(property): void {
-    this.prop = property;
+    this.prop = property.name;
     this.order = -this.order;
   }
   public changeViewToStudents(value: boolean) {
