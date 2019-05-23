@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
@@ -21,8 +23,15 @@ import { StudentFormComponent } from './components/students/student-form/student
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { studentsReducer } from './redux/reducers/students.reducer';
 import { reducers } from './redux/reducers/reducer.factory';
+import { MarkValidatorDirective } from './common/directives/mark-validator.directive';
+import { EffectsModule } from '@ngrx/effects';
+import { StudentsEffects } from './redux/effects/students.effect';
+import { SubjectsEffects } from './redux/effects/subjects.effect';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -36,7 +45,8 @@ import { reducers } from './redux/reducers/reducer.factory';
     ButtonOrderHideDirective,
     SubjectTableComponent,
     SubjectFormComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    MarkValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -45,11 +55,19 @@ import { reducers } from './redux/reducers/reducer.factory';
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
     AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot([StudentsEffects, SubjectsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

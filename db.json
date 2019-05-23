@@ -49,96 +49,78 @@
       "about": "adipisicing est id"
     },
     {
-      "name": "sfds",
-      "lastName": "fdsf",
-      "address": "sdfs",
-      "about": "dfdsf",
-      "index": "vzfuli9vf",
+      "name": "Petr",
+      "lastName": "Petrov",
+      "address": "456 str Esenina Minsk",
+      "about": "good gay",
+      "index": "z4s3pr377",
       "id": 6
     },
     {
-      "name": "111",
-      "lastName": "222",
-      "address": "333",
-      "about": "44",
-      "index": "7dedntu49",
+      "name": "Egor",
+      "lastName": "Zuev",
+      "address": "666 str Esenina",
+      "about": "not bad",
+      "index": "km126gm6n",
       "id": 7
-    },
-    {
-      "name": "Fedor",
-      "lastName": "Dostoevskiy",
-      "address": "str Lenina Moskow",
-      "about": "writer",
-      "index": "ik7kfgg6r",
-      "id": 8
-    },
-    {
-      "name": "33",
-      "lastName": "44",
-      "address": "",
-      "about": "",
-      "index": "xjxhc08ym",
-      "id": 9
     }
   ],
   "subjects": [
     {
       "subject": "mathematics",
       "id": 0,
-      "teacher": "Void",
+      "teacher": "Enchantress",
       "cabinet": 101,
       "description": "Good",
       "marks": {
-        "05/15": {
-          "4jhrglo31": "3",
-          "ff0843eyy": 77,
-          "v8i2k6x8c": 77,
-          "1qfn6qfo4": 77,
-          "vn1ir6fuh": 13,
-          "vhdan3098": 6,
-          "vzfuli9vf": 10,
-          "7dedntu49": 99
-        },
-        "05/17": {
-          "4jhrglo31": 4,
-          "ff0843eyy": "5",
-          "v8i2k6x8c": 2,
-          "1qfn6qfo4": 22,
-          "vn1ir6fuh": "9",
-          "vhdan3098": 6,
-          "vzfuli9vf": 10
-        },
         "05/18": {
-          "4jhrglo31": "2",
-          "ff0843eyy": "2",
-          "v8i2k6x8c": "8",
-          "1qfn6qfo4": 22,
+          "v8i2k6x8c": 2,
+          "1qfn6qfo4": 2,
           "vn1ir6fuh": 2,
-          "vzfuli9vf": 10
+          "vzfuli9vf": 10,
+          "vhdan3098": 10
         },
         "05/19": {
-          "4jhrglo31": "6",
-          "ff0843eyy": "7",
-          "v8i2k6x8c": "0",
-          "1qfn6qfo4": 22,
-          "vn1ir6fuh": ""
+          "4jhrglo31": 6,
+          "ff0843eyy": 7,
+          "v8i2k6x8c": 0,
+          "1qfn6qfo4": 2,
+          "vhdan3098": 10
         },
-        "05/16": {
+        "05/20": {
+          "7dedntu49": 1,
+          "vn1ir6fuh": 1,
+          "v8i2k6x8c": 1,
+          "1qfn6qfo4": 1,
+          "vhdan3098": 10
+        },
+        "05/21": {
+          "4jhrglo31": 10,
+          "vhdan3098": 10
+        },
+        "05/28": {
+          "4jhrglo31": 4,
+          "ff0843eyy": 7,
+          "v8i2k6x8c": 7,
+          "1qfn6qfo4": 7,
+          "7dedntu49": 9,
+          "vn1ir6fuh": 3,
+          "vhdan3098": 3
+        },
+        "05/26": {
           "1qfn6qfo4": 1,
           "v8i2k6x8c": 1,
           "vn1ir6fuh": 1,
           "ff0843eyy": 1,
           "4jhrglo31": 1
         },
-        "05/20": {
-          "7dedntu49": 1,
-          "vzfuli9vf": 1,
-          "vhdan3098": 1,
-          "4jhrglo31": 1,
-          "ff0843eyy": 1,
-          "vn1ir6fuh": 1,
-          "v8i2k6x8c": 1,
-          "1qfn6qfo4": 1
+        "05/31": {
+          "v8i2k6x8c": 2,
+          "1qfn6qfo4": 2,
+          "vn1ir6fuh": 8,
+          "vhdan3098": 6,
+          "vzfuli9vf": 10,
+          "4jhrglo31": 8
         }
       }
     },
@@ -150,36 +132,36 @@
       "description": "Not good",
       "marks": {
         "05/16": {
-          "4jhrglo31": 0,
+          "4jhrglo31": 1,
           "ff0843eyy": 5,
-          "v8i2k6x8c": 2,
-          "1qfn6qfo4": 17,
-          "vn1ir6fuh": "6",
-          "vhdan3098": 7,
+          "vhdan3098": 9,
           "7dedntu49": 2
         },
         "05/17": {
           "4jhrglo31": 0,
-          "vn1ir6fuh": "2",
-          "1qfn6qfo4": 17,
-          "v8i2k6x8c": 1,
-          "ff0843eyy": 5,
+          "vn1ir6fuh": 2,
+          "1qfn6qfo4": 7,
           "vhdan3098": 7
         },
         "05/18": {
           "4jhrglo31": 4,
           "ff0843eyy": 5,
-          "v8i2k6x8c": "7",
-          "1qfn6qfo4": 17,
-          "vn1ir6fuh": "9"
+          "v8i2k6x8c": 7,
+          "1qfn6qfo4": 7,
+          "vn1ir6fuh": 9
         },
         "05/19": {
-          "4jhrglo31": "3",
-          "ff0843eyy": "3",
-          "v8i2k6x8c": "2",
-          "1qfn6qfo4": 1,
-          "vn1ir6fuh": "",
+          "4jhrglo31": 5,
+          "ff0843eyy": 5,
+          "v8i2k6x8c": 4,
           "vhdan3098": 7
+        },
+        "05/21": {
+          "vhdan3098": 10,
+          "vn1ir6fuh": 10,
+          "1qfn6qfo4": 10,
+          "ff0843eyy": 0,
+          "v8i2k6x8c": 6
         }
       }
     },
@@ -190,63 +172,38 @@
       "cabinet": 666,
       "description": "Bad",
       "marks": {
-        "05/16": {
-          "4jhrglo31": "2",
-          "ff0843eyy": 345654,
-          "vn1ir6fuh": 45657,
-          "1qfn6qfo4": 11,
-          "v8i2k6x8c": 456549,
-          "vhdan3098": 11
-        },
         "05/17": {
-          "4jhrglo31": "4",
-          "ff0843eyy": "4",
+          "4jhrglo31": 6,
+          "ff0843eyy": 4,
           "v8i2k6x8c": 9,
-          "1qfn6qfo4": 11,
-          "vn1ir6fuh": "2",
-          "vhdan3098": 11,
+          "1qfn6qfo4": 10,
+          "vn1ir6fuh": 2,
+          "vhdan3098": 10,
           "ik7kfgg6r": 9
         },
         "05/18": {
-          "4jhrglo31": "8",
-          "ff0843eyy": "7",
-          "v8i2k6x8c": "2",
-          "1qfn6qfo4": 11,
-          "vn1ir6fuh": "",
-          "vhdan3098": 11,
+          "4jhrglo31": 8,
+          "ff0843eyy": 8,
+          "v8i2k6x8c": 7,
           "ik7kfgg6r": 9
         },
         "05/19": {
-          "4jhrglo31": "",
-          "ff0843eyy": "",
-          "v8i2k6x8c": "6",
-          "1qfn6qfo4": "2",
-          "vn1ir6fuh": "",
-          "vhdan3098": 11,
+          "v8i2k6x8c": 5,
+          "1qfn6qfo4": 5,
           "ik7kfgg6r": 9
         },
         "05/21": {
           "ik7kfgg6r": 10
+        },
+        "05/25": {
+          "4jhrglo31": 5,
+          "ff0843eyy": 4,
+          "vn1ir6fuh": 7,
+          "1qfn6qfo4": 1,
+          "v8i2k6x8c": 9,
+          "vhdan3098": 10
         }
       }
-    },
-    {
-      "subject": "Bio",
-      "teacher": "Borduk",
-      "cabinet": "23",
-      "description": "s",
-      "marks": {
-        "05/16": {
-          "1qfn6qfo4": 7,
-          "v8i2k6x8c": 5,
-          "vn1ir6fuh": 1,
-          "ff0843eyy": 1,
-          "4jhrglo31": 4,
-          "vhdan3098": 4,
-          "7dedntu49": 3
-        }
-      },
-      "id": 3
     },
     {
       "subject": "physics",
@@ -266,68 +223,29 @@
           "vhdan3098": 1
         }
       },
-      "id": 4
+      "id": 3
     },
     {
-      "subject": "111",
-      "teacher": "222",
+      "subject": "literature",
+      "teacher": "Ivanova123",
       "cabinet": "333",
-      "description": "444",
-      "marks": {
-        "05/20": {
-          "1qfn6qfo4": 1,
-          "v8i2k6x8c": 3
-        }
-      },
-      "id": 5
-    },
-    {
-      "subject": "111",
-      "teacher": "222",
-      "cabinet": "333",
-      "description": "444",
-      "marks": {},
-      "id": 6
-    },
-    {
-      "subject": "Literature",
-      "teacher": "Pushkin",
-      "cabinet": "123",
-      "description": "lukomorye",
+      "description": "gogo Pushkin",
       "marks": {
         "05/21": {
-          "1qfn6qfo4": 6,
-          "vhdan3098": 6,
-          "ff0843eyy": 7,
-          "7dedntu49": 8,
-          "vn1ir6fuh": 9
+          "vhdan3098": 10,
+          "1qfn6qfo4": 10,
+          "v8i2k6x8c": 10,
+          "vn1ir6fuh": 3,
+          "ff0843eyy": null,
+          "4jhrglo31": null
+        },
+        "05/23": {
+          "vhdan3098": 4,
+          "1qfn6qfo4": 4,
+          "v8i2k6x8c": 4
         }
       },
-      "id": 7
-    },
-    {
-      "subject": "111",
-      "teacher": "435435435",
-      "cabinet": "34erterg",
-      "description": "fdgfdgfd",
-      "marks": {},
-      "id": 8
-    },
-    {
-      "subject": "214",
-      "teacher": "234",
-      "cabinet": "243",
-      "description": "324",
-      "marks": {},
-      "id": 9
-    },
-    {
-      "subject": "321",
-      "teacher": "123",
-      "cabinet": "123",
-      "description": "123",
-      "marks": {},
-      "id": 10
+      "id": 4
     }
   ]
 }

@@ -4,18 +4,19 @@
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="form__item row" *ngFor="let item of nameOfInputs">
         <label class="form__label" for="{{ 'input' + item.name }}">{{
-          (item.isRequared ? '*' : '') + item.name
+          item.name | translate
         }}</label>
         <input
           class="form__input"
           type="text"
           [required]="item.isRequared"
           ngModel
+          placeholder="{{ item.name | translate }}"
           name="{{ item.name }}"
         />
       </div>
       <button class="form__button btn" type="submit" [disabled]="!form.valid">
-        Add
+        {{ 'add' | translate }}
       </button>
     </form>
   </div>

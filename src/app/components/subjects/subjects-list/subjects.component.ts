@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from '../../../common/entities/subject';
 import { Student } from '../../../common/entities/student';
-import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddSubject } from 'src/app/redux/actions/subjects.action';
@@ -33,10 +32,7 @@ export class SubjectsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   public ngOnInit() {
     if (!this.subjects) {
@@ -51,14 +47,11 @@ export class SubjectsComponent implements OnInit {
       ...data,
       id: this.subjects.length
     };
-    console.log(newSubject);
     !this.subjects.some(
       el => el.subject.toLowerCase() === newSubject.subject.toLowerCase()
     )
-      ? this.dataService
-          .addNewSubject(newSubject)
-          .subscribe(subject => this.store.dispatch(new AddSubject(subject)))
-      : alert('you just have this subject');
+      ? this.store.dispatch(new AddSubject(newSubject))
+      : alert('you already have this subject');
   }
 
   public changeViewToSubjects(value: boolean) {

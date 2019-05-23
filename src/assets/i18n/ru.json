@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "title": "Классный журнал",
+    "students": "Студенты",
+    "subjects": "Предметы",
+    "statistics": "Статистика",
+    "export": "Вывод"
+  },
+  "name": "Имя",
+  "lastName": "Фамилия",
+  "address": "Адрес",
+  "about": "Обо мне",
+  "subject_header": "Список предметов",
+  "averageMark": "Средняя оценка",
+  "teacher": "Учитель",
+  "add": "Добавить",
+  "subject": "Предмет",
+  "cabinet": "Кабинет",
+  "description": "Описание",
+  "mathematics": "математика",
+  "chemistry": "химия",
+  "english": "английский язык",
+  "physics": "физика",
+  "literature": "литература"
+}

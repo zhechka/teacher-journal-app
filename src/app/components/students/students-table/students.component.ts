@@ -3,11 +3,7 @@ import { Student } from '../../../common/entities/student';
 import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
-import {
-  LoadStudents,
-  AddStudent
-} from 'src/app/redux/actions/students.action';
-import { Observable } from 'rxjs';
+import { AddStudent } from 'src/app/redux/actions/students.action';
 
 @Component({
   selector: 'app-students',
@@ -15,7 +11,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./students.component.sass']
 })
 export class StudentsComponent implements OnInit {
-  public headerItems = ['name', 'lastName', 'address', 'about'];
   public formVisible = false;
   public order = 1;
   public prop: string;
@@ -38,10 +33,7 @@ export class StudentsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   public ngOnInit(): void {
     if (!this.students) {
@@ -52,7 +44,7 @@ export class StudentsComponent implements OnInit {
   }
 
   public saveNewStudent(data): void {
-    const newStudent = {
+    const newStudent: Student = {
       ...data,
       id: this.students.length
     };
@@ -61,14 +53,12 @@ export class StudentsComponent implements OnInit {
         el.name.toLowerCase() === newStudent.name.toLowerCase() &&
         el.lastName.toLowerCase() === newStudent.lastName.toLowerCase()
     )
-      ? this.dataService
-          .addNewStudent(newStudent)
-          .subscribe(student => this.store.dispatch(new AddStudent(student)))
+      ? this.store.dispatch(new AddStudent(newStudent))
       : alert('You already have this student');
   }
 
   public changeSortingOrder(property): void {
-    this.prop = property;
+    this.prop = property.name;
     this.order = -this.order;
   }
   public changeViewToStudents(value: boolean) {

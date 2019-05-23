@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../common/entities/student';
 import { Subject } from '../../../common/entities/subject';
-import { DataService } from '../../../common/services/data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddMarks } from 'src/app/redux/actions/subjects.action';
 
@@ -15,48 +14,57 @@ import { AddMarks } from 'src/app/redux/actions/subjects.action';
 export class SubjectTableComponent implements OnInit {
   public students: Student[];
   public subject: Subject;
+  public data;
   public nameOfSubject: string;
   public dates: string[];
+  public newDates: string[] = [];
   public marks: string[];
   public teacher: string;
   public date: string;
-  constructor(
-    private route: ActivatedRoute,
-    private dataService: DataService,
-    private store: Store<AppState>
-  ) {}
+  public change = false;
+  constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
   public ngOnInit(): void {
     this.nameOfSubject = this.route.snapshot.paramMap.get('name');
-    if (!this.students) {
-      this.store.pipe(select('studentsPage')).subscribe(
-        data => (this.students = data.students),
+    this.store.subscribe(data => {
+      this.data = data;
+      if (data.studentsPage.loaded && data.subjectsPage.loaded) {
+        (this.students = data.studentsPage.students),
+          (this.subject = data.subjectsPage.subjects.find(
+            el => el.subject === this.nameOfSubject
+          )),
+          (this.dates = Object.keys(this.subject.marks).sort()),
+          (this.teacher = this.subject.teacher),
+          (this.marks = this.subject.marks);
+      }
+    });
+  }
 
-        err => console.error('handle error:', err)
-      );
-      this.store
-        .pipe(select('subjectsPage'))
-        .subscribe(
-          data => (
-            (this.subject = data.subjects.find(
-              el => el.subject === this.nameOfSubject
-            )),
-            console.log(this.subject),
-            (this.dates = Object.keys(this.subject.marks)),
-            (this.teacher = this.subject.teacher),
-            (this.marks = this.subject.marks)
-          ),
-          err => console.error('handle error:', err)
-        );
+  dataChanged(newDate, i) {
+    const date = newDate.toString().split('/');
+    if (date.length === 2 && date[0] < 13 && date[1] < 32) {
+      this.newDates[i] = newDate;
     }
+  }
+
+  changed() {
+    this.change = true;
   }
 
   public saveMarksAndTeacherForSubject() {
     this.subject = { ...this.subject, teacher: this.teacher };
-    console.log(this.dates);
-    this.dataService
-      .addNewMarcsForSubject(this.subject)
-      .subscribe(subject => this.store.dispatch(new AddMarks(subject)));
+    if (this.changed) {
+      this.newDates.forEach(
+        (el, i) => (
+          (this.subject.marks[this.newDates[i]] = this.subject.marks[
+            this.dates[i]
+          ]),
+          delete this.subject.marks[this.dates[i]]
+        )
+      );
+
+      this.store.dispatch(new AddMarks(this.subject));
+    }
   }
 
   public addDate() {
@@ -65,7 +73,7 @@ export class SubjectTableComponent implements OnInit {
       day: '2-digit'
     });
     this.dates.includes(this.date)
-      ? console.log('you are just have this date')
+      ? alert('you already have this date')
       : (this.dates.push(this.date), (this.subject.marks[this.date] = {}));
   }
 
