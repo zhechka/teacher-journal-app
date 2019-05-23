@@ -2,18 +2,33 @@ import { SubjectsState } from '../state/subjects.state';
 import { SubjectsAction, ActionTypes } from '../actions/subjects.action';
 
 const initialSubjectsState: SubjectsState = {
-  subjects: []
+  subjects: [],
+  loaded: false,
+  loading: false
 };
 
 export function subjectsReducer(
   state = initialSubjectsState,
   action: SubjectsAction
-) {
+): SubjectsState {
   switch (action.type) {
     case ActionTypes.LOAD_SUBJECTS:
       return {
         ...state,
+        loading: true
+      };
+    case ActionTypes.LOAD_SUBJECTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
         subjects: [...action.payload]
+      };
+    case ActionTypes.LOAD_SUBJECTS_FAIL:
+      return {
+        ...state,
+        loading: false,
+        loaded: false
       };
     case ActionTypes.ADD_SUBJECT:
       return {

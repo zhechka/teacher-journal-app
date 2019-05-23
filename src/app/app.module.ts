@@ -25,6 +25,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers } from './redux/reducers/reducer.factory';
 import { MarkValidatorDirective } from './common/directives/mark-validator.directive';
+import { EffectsModule } from '@ngrx/effects';
+import { StudentsEffects } from './redux/effects/students.effect';
+import { SubjectsEffects } from './redux/effects/subjects.effect';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -63,7 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot([StudentsEffects, SubjectsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

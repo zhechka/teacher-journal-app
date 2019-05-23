@@ -31,11 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService
-      .getStudents()
-      .subscribe(students => this.store.dispatch(new LoadStudents(students)));
-    this.dataService
-      .getSubjects()
-      .subscribe(subjects => this.store.dispatch(new LoadSubjects(subjects)));
+    this.store.dispatch(new LoadStudents());
+    this.store.dispatch(new LoadSubjects());
   }
 }

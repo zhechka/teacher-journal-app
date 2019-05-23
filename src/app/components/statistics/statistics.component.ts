@@ -27,7 +27,7 @@ export class StatisticsComponent implements OnInit {
   onLoad() {
     this.dataService
       .getStudents()
-      .subscribe(students => this.store.dispatch(new LoadStudents(students)));
+      .subscribe(students => this.store.dispatch(new LoadStudents()));
   }
 
   check() {

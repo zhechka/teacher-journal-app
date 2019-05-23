@@ -17,11 +17,6 @@ export class DataService {
   constructor(private http: HttpClient) {}
   public getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(BASE_URL + 'students').pipe(
-      map(students =>
-        students.map(student => {
-          return { ...student, address: student.address.split(' ').join('-') };
-        })
-      ),
       catchError(err => {
         console.log('catch', err);
         return of([]);

@@ -2,15 +2,25 @@ import { Action } from '@ngrx/store';
 import { Subject } from '../../common/entities/subject';
 
 export enum ActionTypes {
-  LOAD_SUBJECTS = '[Subjects] LOAD_SUBJECTS',
+  LOAD_SUBJECTS = '[Subjects] Load Subjects',
+  LOAD_SUBJECTS_SUCCESS = '[Subjects] Load Subjects Success',
+  LOAD_SUBJECTS_FAIL = '[Subjects] Load Subjects Fail',
   ADD_SUBJECT = '[Subject] ADD_SUBJECT',
   ADD_MARKS = '[Subject] ADD_MARKS'
 }
 
 export class LoadSubjects implements Action {
   readonly type = ActionTypes.LOAD_SUBJECTS;
+}
 
+export class LoadSubjectsSuccess implements Action {
+  readonly type = ActionTypes.LOAD_SUBJECTS_SUCCESS;
   constructor(public payload: Subject[]) {}
+}
+
+export class LoadSubjectsFail implements Action {
+  readonly type = ActionTypes.LOAD_SUBJECTS_FAIL;
+  constructor(public payload: any) {}
 }
 
 export class AddSubject implements Action {
@@ -23,4 +33,9 @@ export class AddMarks implements Action {
   constructor(public payload: Subject) {}
 }
 
-export type SubjectsAction = LoadSubjects | AddSubject | AddMarks;
+export type SubjectsAction =
+  | LoadSubjects
+  | LoadSubjectsSuccess
+  | LoadSubjectsFail
+  | AddSubject
+  | AddMarks;
