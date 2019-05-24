@@ -6,6 +6,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TreeviewModule } from 'ngx-treeview';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
     AppRoutingModule,
+    TreeviewModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

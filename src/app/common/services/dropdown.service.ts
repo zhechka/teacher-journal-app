@@ -5,15 +5,14 @@ import { catchError } from 'rxjs/operators';
 
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
+import { TreeviewItem } from 'ngx-treeview/src/treeview-item';
 
 const BASE_URL = 'http://localhost:3000/';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DropDownServise {
   constructor(private http: HttpClient) {}
   public getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(BASE_URL + 'students').pipe(
@@ -33,19 +32,18 @@ export class DataService {
     );
   }
 
-  public addNewStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(BASE_URL + 'students', student, httpOptions);
-  }
+  getBooks(): TreeviewItem[] {
+    const subjects = new TreeviewItem({
+      text: 'Children',
+      value: 1,
+      collapsed: true,
+      children: [
+        { text: 'Baby 3-5', value: 11 },
+        { text: 'Baby 6-8', value: 12 },
+        { text: 'Baby 9-12', value: 13 }
+      ]
+    });
 
-  public addNewSubject(subject: Subject): Observable<Subject> {
-    return this.http.post<Subject>(BASE_URL + 'subjects', subject, httpOptions);
-  }
-
-  public addNewMarcsForSubject(marks: Subject): Observable<Subject> {
-    return this.http.put<Subject>(
-      BASE_URL + 'subjects/' + `${marks.id}`,
-      marks,
-      httpOptions
-    );
+    return [subjects];
   }
 }
