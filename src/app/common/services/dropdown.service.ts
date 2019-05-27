@@ -5,7 +5,6 @@ import { catchError } from 'rxjs/operators';
 
 import { Student } from '../../common/entities/student';
 import { Subject } from '../../common/entities/subject';
-import { TreeviewItem } from 'ngx-treeview/src/treeview-item';
 
 const BASE_URL = 'http://localhost:3000/';
 
@@ -30,20 +29,5 @@ export class DropDownServise {
         return of([]);
       })
     );
-  }
-
-  getBooks(): TreeviewItem[] {
-    const subjects = new TreeviewItem({
-      text: 'Children',
-      value: 1,
-      collapsed: true,
-      children: [
-        { text: 'Baby 3-5', value: 11 },
-        { text: 'Baby 6-8', value: 12 },
-        { text: 'Baby 9-12', value: 13 }
-      ]
-    });
-
-    return [subjects];
   }
 }

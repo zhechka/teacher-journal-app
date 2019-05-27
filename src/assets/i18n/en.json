@@ -13,5 +13,7 @@
   "subject_header": "List of subjects",
   "averageMark": "Average Mark",
   "teacher": "Teacher",
-  "add": "Add"
+  "add": "Add",
+  "success": "Success",
+  "warning": "Warning"
 }
