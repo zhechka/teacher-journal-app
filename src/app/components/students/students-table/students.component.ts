@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../common/entities/student';
-import { DataService } from '../../../common/services/data.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddStudent } from 'src/app/redux/actions/students.action';
+import { PopUpComponent } from 'src/app/shared/pop-up/pop-up.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-students',
@@ -33,7 +34,12 @@ export class StudentsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(private store: Store<AppState>) {}
+
+  bsModalRef: BsModalRef;
+  constructor(
+    private store: Store<AppState>,
+    private modalService: BsModalService
+  ) {}
 
   public ngOnInit(): void {
     if (!this.students) {
@@ -41,6 +47,15 @@ export class StudentsComponent implements OnInit {
         .pipe(select('studentsPage'))
         .subscribe(data => (this.students = data.students));
     }
+  }
+
+  showPopup(title: string, message: string) {
+    const initialState = {
+      message,
+      title
+    };
+    this.bsModalRef = this.modalService.show(PopUpComponent, { initialState });
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
   public saveNewStudent(data): void {
@@ -53,8 +68,15 @@ export class StudentsComponent implements OnInit {
         el.name.toLowerCase() === newStudent.name.toLowerCase() &&
         el.lastName.toLowerCase() === newStudent.lastName.toLowerCase()
     )
-      ? this.store.dispatch(new AddStudent(newStudent))
-      : alert('You already have this student');
+      ? (this.store.dispatch(new AddStudent(newStudent)),
+        this.showPopup(
+          'Success',
+          `Student ${newStudent.name} ${newStudent.lastName} successfully added`
+        ))
+      : this.showPopup(
+          'Fail',
+          `Student ${newStudent.name} ${newStudent.lastName} already exists`
+        );
   }
 
   public changeSortingOrder(property): void {

@@ -55,14 +55,6 @@
       "about": "good gay",
       "index": "z4s3pr377",
       "id": 6
-    },
-    {
-      "name": "Egor",
-      "lastName": "Zuev",
-      "address": "666 str Esenina",
-      "about": "not bad",
-      "index": "km126gm6n",
-      "id": 7
     }
   ],
   "subjects": [
@@ -220,10 +212,17 @@
           "vn1ir6fuh": 9,
           "ff0843eyy": 8,
           "4jhrglo31": 8,
-          "vhdan3098": 1
+          "vhdan3098": 1,
+          "d3mqfs013": 8
         },
         "05/20": {
-          "vhdan3098": 1
+          "vhdan3098": 1,
+          "d3mqfs013": 10
+        },
+        "05/27": {
+          "vhdan3098": 6,
+          "1qfn6qfo4": 6,
+          "v8i2k6x8c": 6
         }
       },
       "id": 3
@@ -249,6 +248,16 @@
         }
       },
       "id": 4
+    },
+    {
+      "subject": "arts",
+      "teacher": "ivanova",
+      "cabinet": "665",
+      "description": "malevich",
+      "marks": {
+        "05/27": {}
+      },
+      "id": 5
     }
   ]
 }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TreeviewModule } from 'ngx-treeview';
@@ -29,6 +30,7 @@ import { MarkValidatorDirective } from './common/directives/mark-validator.direc
 import { EffectsModule } from '@ngrx/effects';
 import { StudentsEffects } from './redux/effects/students.effect';
 import { SubjectsEffects } from './redux/effects/subjects.effect';
+import { PopUpComponent } from './shared/pop-up/pop-up.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SubjectTableComponent,
     SubjectFormComponent,
     StudentFormComponent,
-    MarkValidatorDirective
+    MarkValidatorDirective,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     AppRoutingModule,
     TreeviewModule.forRoot(),
     TranslateModule.forRoot({
@@ -72,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EffectsModule.forRoot([StudentsEffects, SubjectsEffects])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopUpComponent]
 })
 export class AppModule {}
