@@ -67,10 +67,13 @@ export class SubjectsComponent implements OnInit {
     )
       ? (this.store.dispatch(new AddSubject(newSubject)),
         this.showPopup(
-          'Success',
+          'success',
           `Subject ${newSubject.subject} successfully added`
         ))
-      : this.showPopup('Fail', `Subject ${newSubject.subject} already exists`);
+      : this.showPopup(
+          'warning',
+          `Subject ${newSubject.subject} already exists`
+        );
   }
 
   public changeViewToSubjects(value: boolean) {

@@ -70,11 +70,11 @@ export class StudentsComponent implements OnInit {
     )
       ? (this.store.dispatch(new AddStudent(newStudent)),
         this.showPopup(
-          'Success',
+          'success',
           `Student ${newStudent.name} ${newStudent.lastName} successfully added`
         ))
       : this.showPopup(
-          'Fail',
+          'warning',
           `Student ${newStudent.name} ${newStudent.lastName} already exists`
         );
   }
