@@ -4,6 +4,8 @@ import { Student } from '../../../common/entities/student';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state/app.state';
 import { AddSubject } from 'src/app/redux/actions/subjects.action';
+import { PopUpComponent } from 'src/app/shared/pop-up/pop-up.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-subjects',
@@ -32,7 +34,11 @@ export class SubjectsComponent implements OnInit {
       isRequared: false
     }
   ];
-  constructor(private store: Store<AppState>) {}
+  bsModalRef: BsModalRef;
+  constructor(
+    private store: Store<AppState>,
+    private modalService: BsModalService
+  ) {}
 
   public ngOnInit() {
     if (!this.subjects) {
@@ -40,6 +46,15 @@ export class SubjectsComponent implements OnInit {
         .pipe(select('subjectsPage'))
         .subscribe(data => (this.subjects = data.subjects));
     }
+  }
+
+  showPopup(title: string, message: string) {
+    const initialState = {
+      message,
+      title
+    };
+    this.bsModalRef = this.modalService.show(PopUpComponent, { initialState });
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
   public saveNewSubject(data) {
@@ -50,8 +65,15 @@ export class SubjectsComponent implements OnInit {
     !this.subjects.some(
       el => el.subject.toLowerCase() === newSubject.subject.toLowerCase()
     )
-      ? this.store.dispatch(new AddSubject(newSubject))
-      : alert('you already have this subject');
+      ? (this.store.dispatch(new AddSubject(newSubject)),
+        this.showPopup(
+          'success',
+          `Subject ${newSubject.subject} successfully added`
+        ))
+      : this.showPopup(
+          'warning',
+          `Subject ${newSubject.subject} already exists`
+        );
   }
 
   public changeViewToSubjects(value: boolean) {
