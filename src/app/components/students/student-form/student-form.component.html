@@ -7,12 +7,13 @@
           item.name | translate
         }}</label>
         <input
+          [id]="item.name"
           class="form__input"
           type="text"
           [required]="item.isRequared"
           ngModel
           placeholder="{{ item.name | translate }}"
-          name="{{ item.name }}"
+          [name]="item.name"
         />
       </div>
       <button class="form__button btn" type="submit" [disabled]="!form.valid">

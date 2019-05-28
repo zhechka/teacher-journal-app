@@ -14,11 +14,11 @@ import { AddMarks } from 'src/app/redux/actions/subjects.action';
 export class SubjectTableComponent implements OnInit {
   public students: Student[];
   public subject: Subject;
-  public data;
+  public data: AppState;
   public nameOfSubject: string;
   public dates: string[];
   public newDates: string[] = [];
-  public marks: string[];
+  public marks: object;
   public teacher: string;
   public date: string;
   public change = false;
@@ -81,16 +81,17 @@ export class SubjectTableComponent implements OnInit {
     if (!this.marks) {
       return;
     }
-    const marks = Object.values(this.marks)
+    const marksArr = Object.values(this.marks)
       .reduce((a, b) => {
         a.push(+b[index]);
         return a;
       }, [])
       .filter(Boolean);
-    return marks.length === 0
+    return marksArr.length === 0
       ? '-'
       : (
-          marks.reduce((acc: number, cur: number) => acc + cur) / marks.length
+          marksArr.reduce((acc: number, cur: number) => acc + cur) /
+          marksArr.length
         ).toFixed(1);
   }
 }

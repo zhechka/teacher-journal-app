@@ -229,7 +229,7 @@
     },
     {
       "subject": "literature",
-      "teacher": "Ivanova123",
+      "teacher": "S. Ivanova",
       "cabinet": "333",
       "description": "gogo Pushkin",
       "marks": {
@@ -246,7 +246,16 @@
           "1qfn6qfo4": 4,
           "v8i2k6x8c": 4
         },
-        "05/27": {}
+        "05/27": {},
+        "05/28": {
+          "vhdan3098": 1,
+          "1qfn6qfo4": 1,
+          "v8i2k6x8c": 4,
+          "vn1ir6fuh": 4,
+          "ff0843eyy": 4,
+          "4jhrglo31": 4,
+          "z4s3pr377": 4
+        }
       },
       "id": 4
     }
