@@ -68,10 +68,11 @@ export class SubjectTableComponent implements OnInit {
   }
 
   public addDate() {
-    this.date = new Date().toLocaleDateString('UTC', {
+    this.date = new Date().toLocaleDateString('en-US', {
       month: '2-digit',
       day: '2-digit'
     });
+    console.log(this.date);
     this.dates.includes(this.date)
       ? alert('you already have this date')
       : (this.dates.push(this.date), (this.subject.marks[this.date] = {}));
